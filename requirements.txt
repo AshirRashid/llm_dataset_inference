@@ -1,4 +1,2 @@
-lm_dataformat
-nltk
-git+https://github.com/huggingface/transformers
-datasets
+matplotlib>=3.5.0
+numpy>=1.21.0

@@ -1,6 +1,6 @@
 import torch
 import zlib
-import tqdm, json 
+import tqdm, json, os 
 
 loss_fct = torch.nn.CrossEntropyLoss(reduction="none")
 
@@ -207,7 +207,7 @@ def perturbation_ratio(model, tokenizer, dataset, loss_list, batch_size = 32):
 
 
 reference_model_registry = {
-    "silo":"kernelmachine/silo-pdswby-1.3b",
+    # "silo":"kernelmachine/silo-pdswby-1.3b",  # Commented out due to openlm architecture issue
     "tinystories-33M": "roneneldan/TinyStories-33M",
     "tinystories-1M": "roneneldan/TinyStories-1M",
     "phi-1_5": "microsoft/phi-1_5",
@@ -235,10 +235,10 @@ def aggregate_metrics(model, tokenizer, dataset, metric_list, args, batch_size =
     if "ppl" in metric_list:
         metrics["ppl"] = perplexity(loss_list)
     if "k_min_probs" in metric_list:
-        for k in [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]:
+        for k in [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]:
             metrics[f"k_min_probs_{k}"] = k_min_probs(loss_list, k=k)
     if "k_max_probs" in metric_list:
-        for k in [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]:
+        for k in [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]:
             metrics[f"k_max_probs_{k}"] = k_min_probs(loss_list, k=k, reverse=True)
     if "zlib_ratio" in metric_list:
         metrics["zlib_ratio"] = zlib_ratio(loss_list, example_list)
@@ -251,13 +251,17 @@ def aggregate_metrics(model, tokenizer, dataset, metric_list, args, batch_size =
         # for computation efficiency, we now enforce that the reference model should already have been run and its ppl saved
         for model_name in reference_model_registry:
             hf_path = reference_model_registry[model_name]
-            with open(f"results/{hf_path}/{args.dataset_name}_{args.split}_metrics.json", 'r') as f:
-                metrics_train = json.load(f)
-                ref_ppl = metrics_train["ppl"]
-                ref_ratios = ppl_ratio(loss_list, ref_ppl)
-                ref_diffs = ppl_diff(loss_list, ref_ppl)
-                metrics[f"ref_ppl_ratio_{model_name}"] = ref_ratios
-                metrics[f"ref_ppl_diff_{model_name}"] = ref_diffs
+            ref_file = f"results/{hf_path}/{args.dataset_name}_{args.split}_metrics.json"
+            if os.path.exists(ref_file):
+                with open(ref_file, 'r') as f:
+                    metrics_train = json.load(f)
+                    ref_ppl = metrics_train["ppl"]
+                    ref_ratios = ppl_ratio(loss_list, ref_ppl)
+                    ref_diffs = ppl_diff(loss_list, ref_ppl)
+                    metrics[f"ref_ppl_ratio_{model_name}"] = ref_ratios
+                    metrics[f"ref_ppl_diff_{model_name}"] = ref_diffs
+            else:
+                print(f"Warning: Reference model results not found for {model_name} at {ref_file}. Skipping reference model comparison.")
 
         '''
         old code to run reference models on the fly

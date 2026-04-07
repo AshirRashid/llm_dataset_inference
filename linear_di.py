@@ -17,7 +17,8 @@ import argparse
 from tqdm import tqdm
 from selected_features import feature_list
 
-p_sample_list = [2, 5, 10, 20, 50, 100, 150, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
+# p_sample_list = [2, 5, 10, 20, 50, 100, 150, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
+p_sample_list = [500, 600, 700, 800, 900, 1000]
 
 def get_args():
     parser = argparse.ArgumentParser(description='Dataset Inference on a language model')
@@ -193,9 +194,9 @@ def split_train_val(metrics):
 
 def main():
     args = get_args()
-    with open(f"new_results/{args.model_name}/{args.dataset_name}_train_metrics.json", 'r') as f:
+    with open(f"results/{args.model_name}/{args.dataset_name}_train_metrics.json", 'r') as f:
         metrics_train = json.load(f)
-    with open(f"new_results/{args.model_name}/{args.dataset_name}_val_metrics.json", 'r') as f:
+    with open(f"results/{args.model_name}/{args.dataset_name}_val_metrics.json", 'r') as f:
         metrics_val = json.load(f)
 
     if args.false_positive:
@@ -247,6 +248,7 @@ def main():
             heldout_val = remove_outliers(heldout_val, remove_frac = 0.05, outliers = "randomize")
 
         p_value_list = get_p_value_list(heldout_train, heldout_val)
+        print(f"P-values for seed {i}: {p_value_list}")
 
         # using the model weights, get importance of each feature, and save to csv
         weights = model.weight.data.squeeze().tolist() 

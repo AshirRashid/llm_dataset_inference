@@ -1,11 +1,10 @@
 #!/bin/sh
-#SBATCH --output=slurm_output/slurm_%j.out  # Standard output
-#SBATCH --error=slurm_output/slurm_%j.err   # Standard error
+#SBATCH --output=/scratch/ar7789/llm_dataset_inference/scripts/shell_launchers/slurm_out/slurm_%j.out  # Standard output
+#SBATCH --error=/scratch/ar7789/llm_dataset_inference/scripts/shell_launchers/slurm_out/slurm_%j.err   # Standard error
 #SBATCH --cpus-per-task=4
 #SBATCH --tasks-per-node=1
 #SBATCH --mem=10G
 #SBATCH --time=1-10:00:00
-#SBATCH --partition=general
 #SBATCH --array=0-999
 
 
@@ -51,10 +50,9 @@ fi
 echo model_name: $model_name outliers: $outlier normalize: $normalize features: $features false_positive: $false_positive num_samples: $num_samples dataset: $dataset
 
 
-source ~/.bashrc
-conda init
+source /share/apps/NYUAD5/miniconda/3-4.11.0/bin/activate
 conda activate di
 
-cd /home/pratyus2/projects/llm_dataset_inference
+cd /scratch/ar7789/llm_dataset_inference
 
 python linear_di.py --num_random 10 --dataset_name $dataset --model_name $model_name --normalize $normalize --outliers $outlier --features $features --false_positive $false_positive --num_samples $num_samples
