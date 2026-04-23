@@ -399,6 +399,16 @@ HTML_TEMPLATE = """
                     <label for="filter-dataset">Dataset</label>
                     <select id="filter-dataset" multiple></select>
                 </div>
+                <div class="filter-group">
+                    <label for="x-axis-select">Group By (X-Axis)</label>
+                    <select id="x-axis-select">
+                        <option value="model" selected>Model Variant (Default)</option>
+                        <option value="family">Model Family</option>
+                        <option value="quant_type">Quant Type</option>
+                        <option value="bit_width">Bit Width</option>
+                        <option value="dataset">Dataset</option>
+                    </select>
+                </div>
 
                 <div class="toggle-group">
                     <div class="filter-group" style="flex-grow: 1;">
@@ -453,6 +463,7 @@ HTML_TEMPLATE = """
             config: document.getElementById('filter-config'),
             dataset: document.getElementById('filter-dataset'),
             runType: document.getElementById('filter-runtype'),
+            xAxisSelect: document.getElementById('x-axis-select'),
             togglePlotType: document.getElementById('toggle-plot-type'),
             toggleMetricType: document.getElementById('toggle-metric-type')
         };
@@ -490,7 +501,7 @@ HTML_TEMPLATE = """
                 updateDashboard();
             });
 
-            ['family', 'bits', 'config', 'dataset', 'runType', 'togglePlotType', 'toggleMetricType'].forEach(key => {
+            ['family', 'bits', 'config', 'dataset', 'runType', 'togglePlotType', 'toggleMetricType', 'xAxisSelect'].forEach(key => {
                 if(filters[key]) filters[key].addEventListener('change', updateDashboard);
             });
 
@@ -500,6 +511,8 @@ HTML_TEMPLATE = """
                         el.checked = false;
                     } else if (el.multiple) {
                         Array.from(el.options).forEach(opt => opt.selected = true);
+                    } else if (el.id === 'x-axis-select') {
+                        el.value = 'model';
                     }
                 });
                 populate(filters.config, getUnique('config'));
@@ -522,7 +535,8 @@ HTML_TEMPLATE = """
                 dataset: getSelectedValues(filters.dataset),
                 runType: getSelectedValues(filters.runType),
                 isScatter: filters.togglePlotType.checked,
-                isMetricD: filters.toggleMetricType.checked
+                isMetricD: filters.toggleMetricType.checked,
+                xAxisChoice: filters.xAxisSelect.value
             };
 
             const filteredData = rawData.filter(d => 
@@ -534,11 +548,11 @@ HTML_TEMPLATE = """
                 selected.runType.includes(d.run_type)
             );
 
-            renderPlot(filteredData, selected.isScatter, selected.isMetricD);
+            renderPlot(filteredData, selected.isScatter, selected.isMetricD, selected.xAxisChoice);
             updateStats(filteredData, selected.isMetricD);
         }
 
-        function renderPlot(data, isScatter, isMetricD) {
+        function renderPlot(data, isScatter, isMetricD, xAxisChoice) {
             const metricKey = isMetricD ? 'cohens_d' : 'p_value';
             const validData = data.filter(d => d[metricKey] !== null && d[metricKey] !== undefined);
 
@@ -577,8 +591,18 @@ HTML_TEMPLATE = """
                 return a.config.localeCompare(b.config);
             });
 
-            const getXLabel = d => d.config === 'Default' ? `${d.family}\\n${d.quant_type}-${d.bit_width}` : `${d.family}\\n${d.quant_type}-${d.bit_width}\\n${d.config}`;
-            const uniqueConfigs = Array.from(new Set(sortedData.map(getXLabel)));
+            const getXLabel = (d) => {
+                if (xAxisChoice === 'family') return d.family;
+                if (xAxisChoice === 'quant_type') return d.quant_type;
+                if (xAxisChoice === 'bit_width') return d.bit_width;
+                if (xAxisChoice === 'dataset') return d.dataset;
+                return d.config === 'Default' ? `${d.family}\\n${d.quant_type}-${d.bit_width}` : `${d.family}\\n${d.quant_type}-${d.bit_width}\\n${d.config}`;
+            };
+            
+            let uniqueConfigs = Array.from(new Set(sortedData.map(getXLabel)));
+            if (xAxisChoice !== 'model') {
+                uniqueConfigs.sort();
+            }
             
             if (regular.length > 0) {
                 const tr = commonProps('Regular (TP)', '#38bdf8', regular);
