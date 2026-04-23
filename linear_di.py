@@ -16,6 +16,7 @@ import torch.nn as nn
 import argparse
 from tqdm import tqdm
 from selected_features import feature_list
+from effect_size import cohens_d
 
 # p_sample_list = [2, 5, 10, 20, 50, 100, 150, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
 p_sample_list = [500, 600, 700, 800, 900, 1000]
@@ -30,6 +31,7 @@ def get_args():
     parser.add_argument("--features", type=str, default="all", help="The features to use", choices=["all", "selected"])
     parser.add_argument("--false_positive", type=int, default=0, help="What if you gave two val splits?", choices=[0, 1])
     parser.add_argument("--num_random", type=int, default=1, help="How many random runs to do?")
+    parser.add_argument("--metric", type=str, default="ttest", help="The statistical metric to evaluate inference leakage", choices=["ttest", "cohens_d"])
     args = parser.parse_args()
     return args
 
@@ -167,15 +169,21 @@ def remove_outliers(metrics, remove_frac=0.05, outliers = "zero"):
     return trimmed_metrics
     
 
-def get_p_value_list(heldout_train, heldout_val):
-    p_value_list = []
+def get_metric_list(heldout_train, heldout_val, metric_type='ttest'):
+    metric_list = []
     for num_samples in p_sample_list:
         heldout_train_curr = heldout_train[:num_samples]
         heldout_val_curr = heldout_val[:num_samples]
-        t, p_value = ttest_ind(heldout_train_curr, heldout_val_curr, alternative='less')
-        p_value_list.append(p_value)
-    return p_value_list
-    
+        
+        if metric_type == 'ttest':
+            t, val = ttest_ind(heldout_train_curr, heldout_val_curr, alternative='less')
+        elif metric_type == 'cohens_d':
+            val = cohens_d(heldout_train_curr, heldout_val_curr)
+        else:
+            raise ValueError(f"Unknown metric {metric_type}")
+            
+        metric_list.append(val)
+    return metric_list
     
 
 def split_train_val(metrics):
@@ -247,8 +255,8 @@ def main():
             heldout_train = remove_outliers(heldout_train, remove_frac = 0.05, outliers = "randomize")
             heldout_val = remove_outliers(heldout_val, remove_frac = 0.05, outliers = "randomize")
 
-        p_value_list = get_p_value_list(heldout_train, heldout_val)
-        print(f"P-values for seed {i}: {p_value_list}")
+        metric_list = get_metric_list(heldout_train, heldout_val, args.metric)
+        print(f"{args.metric} values for seed {i}: {metric_list}")
 
         # using the model weights, get importance of each feature, and save to csv
         weights = model.weight.data.squeeze().tolist() 
@@ -267,14 +275,18 @@ def main():
         df.to_csv(f'aggregated_results/feature_importance/{path_to_append}/{model_name}/{args.dataset_name}_seed_{i}.csv',  index=False)
 
 
-        # add the  to the csv in p_values/{model_name}.csv if it does not exist
-        os.makedirs(f"aggregated_results/p_values/{path_to_append}/{model_name}", exist_ok=True)
+        # serialize strictly cleanly to directories mapping the metric avoiding conflicts
+        dir_name = "p_values" if args.metric == "ttest" else "cohens_d"
+        os.makedirs(f"aggregated_results/{dir_name}/{path_to_append}/{model_name}", exist_ok=True)
        
-        p_file = f"aggregated_results/p_values/{path_to_append}/{model_name}/{args.dataset_name}.csv"
+        p_file = f"aggregated_results/{dir_name}/{path_to_append}/{model_name}/{args.dataset_name}.csv"
         print(f"Writing to {p_file}")
+        
+        prefix = 'p_' if args.metric == 'ttest' else 'd_'
+        
         if not os.path.exists(p_file):
             with open(p_file, 'w') as f:
-                to_write = "seed," + ",".join([f"p_{str(p)}" for p in p_sample_list]) + "\n"
+                to_write = "seed," + ",".join([f"{prefix}{str(p)}" for p in p_sample_list]) + "\n"
                 f.write(to_write)
             
         # check if the dataset_name is already in the file
@@ -284,12 +296,12 @@ def main():
             lines = f.readlines()
             for line in lines:
                 if seed in line:
-                    print(f"Dataset {args.dataset_name} already in file {p_file}. Aborting...\n{p_value_list}")
+                    print(f"Dataset {args.dataset_name} already in file {p_file}. Aborting...\n{metric_list}")
                     flag = 1
 
             if flag == 0:
                 with open(p_file, 'a') as f:
-                    to_write = seed + "," + ",".join([str(p) for p in p_value_list]) + "\n"
+                    to_write = seed + "," + ",".join([str(p) for p in metric_list]) + "\n"
                     f.write(to_write)
 
 if __name__ == "__main__":

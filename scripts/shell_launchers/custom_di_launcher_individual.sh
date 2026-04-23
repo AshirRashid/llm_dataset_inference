@@ -159,9 +159,16 @@ val_metrics="results/${model_name}/${dataset}_val_metrics.json"
 if [ -f "$train_metrics" ] && [ -f "$val_metrics" ]; then
     echo "Files found: $train_metrics and $val_metrics"
     echo "Calculating p-values..."
-    # Use 500 samples for training so that the remaining 500 (from 1000 total) are used for p-value calculation
+    # Use 500 samples for training so that the remaining 500 (from 1000 total) are used for calculation
+    
+    # Run with default metric (ttest)
     python linear_di.py --model_name "$model_name" --dataset_name "$dataset" --num_samples 500 --normalize train --outliers "mean+p-value" --features all --num_random 5 --false_positive 0 
     python linear_di.py --model_name "$model_name" --dataset_name "$dataset" --num_samples 500 --normalize train --outliers "mean+p-value" --features all --num_random 5 --false_positive 1
+    
+    # Run with cohens_d metric
+    echo "Calculating cohens_d metric..."
+    python linear_di.py --model_name "$model_name" --dataset_name "$dataset" --num_samples 500 --normalize train --outliers "mean+p-value" --features all --num_random 5 --false_positive 0 --metric cohens_d
+    python linear_di.py --model_name "$model_name" --dataset_name "$dataset" --num_samples 500 --normalize train --outliers "mean+p-value" --features all --num_random 5 --false_positive 1 --metric cohens_d
 else
     echo "P-value calculation skipped: waiting for both train and val metrics."
     echo "Checked paths:"
