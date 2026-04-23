@@ -72,12 +72,29 @@ def aggregate_data(start_dir):
                     if df.empty or 'p_500' not in df.columns:
                         continue
                     
-                    # Convert p_500 to numeric
                     df['p_500'] = pd.to_numeric(df['p_500'], errors='coerce')
-                    p_values = df['p_500'].dropna().tolist()
-                    seeds = df['seed'].tolist() if 'seed' in df.columns else ['unknown'] * len(p_values)
                     
-                    for p, seed in zip(p_values, seeds):
+                    # Look for cohens_d
+                    d_path = file_path.replace('p_values', 'cohens_d')
+                    if os.path.exists(d_path):
+                        df_d = pd.read_csv(d_path)
+                        if 'seed' in df.columns and 'seed' in df_d.columns:
+                            df = df.merge(df_d, on='seed', how='left')
+                        else:
+                            df['d_500'] = df_d['d_500'] if 'd_500' in df_d.columns else None
+                            
+                    if 'd_500' in df.columns:
+                        df['d_500'] = pd.to_numeric(df['d_500'], errors='coerce')
+                    else:
+                        df['d_500'] = None
+
+                    for _, row in df.iterrows():
+                        p = row['p_500']
+                        d = row['d_500']
+                        seed = row['seed'] if 'seed' in df.columns else 'unknown'
+                        
+                        if pd.isna(p): continue
+                        
                         data_points.append({
                             "family": family,
                             "quant_type": quant_type,
@@ -87,6 +104,7 @@ def aggregate_data(start_dir):
                             "dataset": dataset_name,
                             "run_type": run_type,
                             "p_value": p,
+                            "cohens_d": d if not pd.isna(d) else None,
                             "seed": seed,
                             "model_name": model_subdir
                         })
@@ -101,7 +119,7 @@ HTML_TEMPLATE = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P-Value Distribution Dashboard</title>
+    <title>P-Value / Cohen's d Dashboard</title>
     
     <!-- Design System: MRI Spec (Dark Mode + Glassmorphism) -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
@@ -355,8 +373,8 @@ HTML_TEMPLATE = """
 <body>
     <div class="container">
         <header>
-            <h1>P-Value Analysis Dashboard</h1>
-            <p class="subtitle">Interactive distribution analysis of model outputs (p_500)</p>
+            <h1>P-Value & Cohen's d Dashboard</h1>
+            <p class="subtitle">Interactive distribution analysis of model outputs (p_500 & d_500)</p>
         </header>
 
         <section class="glass-card">
@@ -398,6 +416,14 @@ HTML_TEMPLATE = """
                         </label>
                         <span>Scatter</span>
                     </div>
+                    <div class="toggle-item" style="margin-left: 2rem;">
+                        <span>P-Value</span>
+                        <label class="switch">
+                            <input type="checkbox" id="toggle-metric-type">
+                            <span class="slider"></span>
+                        </label>
+                        <span>Cohen's d</span>
+                    </div>
                 </div>
             </div>
             <div style="text-align: right; margin-top: 1rem;">
@@ -427,7 +453,8 @@ HTML_TEMPLATE = """
             config: document.getElementById('filter-config'),
             dataset: document.getElementById('filter-dataset'),
             runType: document.getElementById('filter-runtype'),
-            togglePlotType: document.getElementById('toggle-plot-type')
+            togglePlotType: document.getElementById('toggle-plot-type'),
+            toggleMetricType: document.getElementById('toggle-metric-type')
         };
 
         function initFilters() {
@@ -463,14 +490,14 @@ HTML_TEMPLATE = """
                 updateDashboard();
             });
 
-            ['family', 'bits', 'config', 'dataset', 'runType', 'togglePlotType'].forEach(key => {
+            ['family', 'bits', 'config', 'dataset', 'runType', 'togglePlotType', 'toggleMetricType'].forEach(key => {
                 if(filters[key]) filters[key].addEventListener('change', updateDashboard);
             });
 
             document.getElementById('reset-filters').addEventListener('click', () => {
                 Object.values(filters).forEach(el => {
                     if (el.type === 'checkbox') {
-                        if (el.id === 'toggle-plot-type') el.checked = false;
+                        el.checked = false;
                     } else if (el.multiple) {
                         Array.from(el.options).forEach(opt => opt.selected = true);
                     }
@@ -494,7 +521,8 @@ HTML_TEMPLATE = """
                 config: getSelectedValues(filters.config),
                 dataset: getSelectedValues(filters.dataset),
                 runType: getSelectedValues(filters.runType),
-                isScatter: filters.togglePlotType.checked
+                isScatter: filters.togglePlotType.checked,
+                isMetricD: filters.toggleMetricType.checked
             };
 
             const filteredData = rawData.filter(d => 
@@ -506,18 +534,21 @@ HTML_TEMPLATE = """
                 selected.runType.includes(d.run_type)
             );
 
-            renderPlot(filteredData, selected.isScatter);
-            updateStats(filteredData);
+            renderPlot(filteredData, selected.isScatter, selected.isMetricD);
+            updateStats(filteredData, selected.isMetricD);
         }
 
-        function renderPlot(data, isScatter) {
-            if (data.length === 0) {
+        function renderPlot(data, isScatter, isMetricD) {
+            const metricKey = isMetricD ? 'cohens_d' : 'p_value';
+            const validData = data.filter(d => d[metricKey] !== null && d[metricKey] !== undefined);
+
+            if (validData.length === 0) {
                 document.getElementById('plot-container').innerHTML = '<div style="display: flex; height: 100%; align-items: center; justify-content: center; color: var(--text-muted);">No data matches current filters</div>';
                 return;
             }
 
-            const regular = data.filter(d => d.run_type === 'Regular');
-            const fp = data.filter(d => d.run_type === 'False Positive');
+            const regular = validData.filter(d => d.run_type === 'Regular');
+            const fp = validData.filter(d => d.run_type === 'False Positive');
 
             const traces = [];
 
@@ -540,7 +571,7 @@ HTML_TEMPLATE = """
             });
 
             // Sort data by family and bit_sort_key for consistent x-axis order
-            const sortedData = [...data].sort((a, b) => {
+            const sortedData = [...validData].sort((a, b) => {
                 if (a.family !== b.family) return a.family.localeCompare(b.family);
                 if (a.bit_sort_key !== b.bit_sort_key) return a.bit_sort_key - b.bit_sort_key;
                 return a.config.localeCompare(b.config);
@@ -551,23 +582,32 @@ HTML_TEMPLATE = """
             
             if (regular.length > 0) {
                 const tr = commonProps('Regular (TP)', '#38bdf8', regular);
-                tr.y = regular.map(d => d.p_value);
+                tr.y = regular.map(d => d[metricKey]);
                 tr.x = regular.map(getXLabel);
                 traces.push(tr);
             }
 
             if (fp.length > 0) {
                 const tr = commonProps('False Positive (FP)', '#f87171', fp);
-                tr.y = fp.map(d => d.p_value);
+                tr.y = fp.map(d => d[metricKey]);
                 tr.x = fp.map(getXLabel);
                 traces.push(tr);
             }
+
+            const shapes = isMetricD ? [] : [
+                { type: 'line', y0: 0.1, y1: 0.1, x0: 0, x1: 1, xref: 'paper', line: { color: '#94a3b8', width: 2, dash: 'dot' } },
+                { type: 'line', y0: 0.5, y1: 0.5, x0: 0, x1: 1, xref: 'paper', line: { color: '#94a3b8', width: 2, dash: 'dot' } }
+            ];
 
             const layout = {
                 paper_bgcolor: 'rgba(0,0,0,0)',
                 plot_bgcolor: 'rgba(0,0,0,0)',
                 font: { family: 'Outfit, sans-serif', color: '#f1f5f9' },
-                yaxis: { title: 'P-Value', gridcolor: 'rgba(255,255,255,0.1)', range: [-0.05, 1.1] },
+                yaxis: { 
+                    title: isMetricD ? "Cohen's d" : 'P-Value', 
+                    gridcolor: 'rgba(255,255,255,0.1)', 
+                    range: isMetricD ? null : [-0.05, 1.1] 
+                },
                 xaxis: { 
                     gridcolor: 'rgba(255,255,255,0.1)', 
                     tickangle: -45,
@@ -577,21 +617,39 @@ HTML_TEMPLATE = """
                 boxmode: 'group',
                 margin: { t: 40, b: 120, l: 60, r: 20 },
                 legend: { orientation: 'h', y: 1.1 },
-                shapes: [
-                    { type: 'line', y0: 0.1, y1: 0.1, x0: 0, x1: 1, xref: 'paper', line: { color: '#94a3b8', width: 2, dash: 'dot' } },
-                    { type: 'line', y0: 0.5, y1: 0.5, x0: 0, x1: 1, xref: 'paper', line: { color: '#94a3b8', width: 2, dash: 'dot' } }
-                ]
+                shapes: shapes
             };
 
             Plotly.newPlot('plot-container', traces, layout, { responsive: true });
         }
 
-        function updateStats(data) {
+        function updateStats(data, isMetricD) {
+            const metricKey = isMetricD ? 'cohens_d' : 'p_value';
+            const validData = data.filter(d => d[metricKey] !== null && d[metricKey] !== undefined);
+
             const summary = document.getElementById('stats-summary');
-            const total = data.length;
-            const regCount = data.filter(d => d.run_type === 'Regular').length;
-            const fpCount = data.filter(d => d.run_type === 'False Positive').length;
-            const outliers = data.filter(d => d.p_value < 0.1).length;
+            const total = validData.length;
+            const regCount = validData.filter(d => d.run_type === 'Regular').length;
+            const fpCount = validData.filter(d => d.run_type === 'False Positive').length;
+            
+            let extraStat = '';
+            if (!isMetricD) {
+                const outliers = validData.filter(d => d.p_value < 0.1).length;
+                extraStat = `
+                    <div class="stat-item">
+                        <span class="stat-value">${((outliers/total || 0) * 100).toFixed(1)}%</span>
+                        <span class="stat-label">Significant (p < 0.1)</span>
+                    </div>
+                `;
+            } else {
+                const highEffect = validData.filter(d => Math.abs(d.cohens_d) > 0.8).length;
+                extraStat = `
+                    <div class="stat-item">
+                        <span class="stat-value">${((highEffect/total || 0) * 100).toFixed(1)}%</span>
+                        <span class="stat-label">Large Effect (|d| > 0.8)</span>
+                    </div>
+                `;
+            }
 
             summary.innerHTML = `
                 <div class="stat-item">
@@ -606,10 +664,7 @@ HTML_TEMPLATE = """
                     <span class="stat-value">${fpCount}</span>
                     <span class="stat-label">False Positives</span>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-value">${((outliers/total || 0) * 100).toFixed(1)}%</span>
-                    <span class="stat-label">Significant (p < 0.1)</span>
-                </div>
+                ${extraStat}
             `;
         }
 
