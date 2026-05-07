@@ -7,7 +7,7 @@ from datetime import datetime
 
 # --- Configuration Constants ---
 DEFAULT_START_DIR = "/scratch/ar7789/llm_dataset_inference/aggregated_results/p_values/mean+p-value-outliers"
-OUTPUT_DIR = "/scratch/ar7789/llm_dataset_inference/aggregated_results/p_values/agg_plots"
+OUTPUT_DIR = "/scratch/ar7789/llm_dataset_inference/scripts/dashboard"
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "dashboard.html")
 
 def parse_model_info(model_dir_name):

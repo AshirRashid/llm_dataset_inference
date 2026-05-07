@@ -14,4 +14,4 @@ echo "  gpu_id: $gpu_id"
 echo "  batch_size: $batch_size"
 echo "  dataset: $dataset"
 
-sbatch /scratch/ar7789/llm_dataset_inference/scripts/custom_di_launcher_individual.sh $model_name $split_name $gpu_id $batch_size $dataset
+sbatch /scratch/ar7789/llm_dataset_inference/scripts/shell_launchers/custom_di_launcher_individual.sh $model_name $split_name $gpu_id $batch_size $dataset

@@ -1,0 +1,34 @@
+{
+    "arxiv": {
+        "Morphological_Complexity": 1.0671527590242147,
+        "Syntactic_Entropy": 4.279674834223389,
+        "Redundancy": 8.069378868654034,
+        "Avg_Word_Length": 5.52694918585489,
+        "Capitalization_Rate": 0.1328817864324267,
+        "Vocabulary_Richness": 0.11969218209031945
+    },
+    "wikipedia": {
+        "Morphological_Complexity": 1.1674751650391242,
+        "Syntactic_Entropy": 4.3166097363052796,
+        "Redundancy": 8.680311572465108,
+        "Avg_Word_Length": 5.0024243279636,
+        "Capitalization_Rate": 0.269953659052951,
+        "Vocabulary_Richness": 0.06495217280661048
+    },
+    "github": {
+        "Morphological_Complexity": 1.0484186777325653,
+        "Syntactic_Entropy": 3.453513494966702,
+        "Redundancy": 7.399762769988457,
+        "Avg_Word_Length": 6.732768090628939,
+        "Capitalization_Rate": 0.16429087586155497,
+        "Vocabulary_Richness": 0.19169213121235001
+    },
+    "cc": {
+        "Morphological_Complexity": 1.2585299656585798,
+        "Syntactic_Entropy": 4.504694592250405,
+        "Redundancy": 8.1873603966269,
+        "Avg_Word_Length": 4.671114676094837,
+        "Capitalization_Rate": 0.15118559504294204,
+        "Vocabulary_Richness": 0.045236139070707386
+    }
+}

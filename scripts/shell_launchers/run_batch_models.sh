@@ -27,7 +27,7 @@ for model in "${MODELS[@]}"; do
     echo "Submitting job for model: $model"
     # Assuming standard arguments for dataset etc. Adjust if needed.
     # defaulting to "wikipedia" and "train" (though script runs both splits now)
-    sbatch ./scripts/custom_di_launcher_individual.sh "$FULL_MODEL_PATH" "train" "0" "32" "github"
+    sbatch /scratch/ar7789/llm_dataset_inference/scripts/shell_launchers/custom_di_launcher_individual.sh "$FULL_MODEL_PATH" "train" "0" "32" "github"
     
     echo "-----------------------------------"
 done

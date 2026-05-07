@@ -1,0 +1,1247 @@
+Multivariate Analysis Report: Quantization Resilience
+============================================================
+
+Model: pythia-12b-deduped
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.096, Q2:0.271, Q3:0.181, Q4:0.223
+    - Syntactic Entropy: Q1:0.127, Q2:0.237, Q3:0.120, Q4:0.262
+    - Redundancy: Q1:0.091, Q2:0.158, Q3:0.207, Q4:0.180
+    - Avg Word Length: Q1:0.094, Q2:0.100, Q3:0.185, Q4:0.176
+    - Capitalization Rate: Q1:0.111, Q2:0.289, Q3:0.240, Q4:0.075
+    - Vocabulary Richness: Q1:0.187, Q2:0.159, Q3:0.147, Q4:0.134
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.423, Q2:0.379, Q3:0.322, Q4:0.152
+    - Syntactic Entropy: Q1:0.472, Q2:0.379, Q3:0.350, Q4:0.120
+    - Redundancy: Q1:0.321, Q2:0.223, Q3:0.254, Q4:0.405
+    - Avg Word Length: Q1:0.231, Q2:0.197, Q3:0.408, Q4:0.418
+    - Capitalization Rate: Q1:0.255, Q2:0.182, Q3:0.357, Q4:0.531
+    - Vocabulary Richness: Q1:0.353, Q2:0.305, Q3:0.373, Q4:0.354
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.209, Q2:0.181, Q3:0.130, Q4:0.164
+    - Syntactic Entropy: Q1:0.220, Q2:0.131, Q3:0.135, Q4:0.173
+    - Redundancy: Q1:0.188, Q2:0.084, Q3:0.206, Q4:0.212
+    - Avg Word Length: Q1:0.254, Q2:0.208, Q3:0.156, Q4:0.237
+    - Capitalization Rate: Q1:0.154, Q2:0.109, Q3:0.151, Q4:0.253
+    - Vocabulary Richness: Q1:0.242, Q2:0.149, Q3:0.161, Q4:0.162
+  Dataset: CC
+    - Morphological Complexity: Q1:0.264, Q2:0.133, Q3:0.245, Q4:0.175
+    - Syntactic Entropy: Q1:0.250, Q2:0.218, Q3:0.210, Q4:0.196
+    - Redundancy: Q1:0.199, Q2:0.094, Q3:0.238, Q4:0.215
+    - Avg Word Length: Q1:0.111, Q2:0.229, Q3:0.256, Q4:0.240
+    - Capitalization Rate: Q1:0.190, Q2:0.183, Q3:0.159, Q4:0.316
+    - Vocabulary Richness: Q1:0.296, Q2:0.176, Q3:0.164, Q4:0.126
+
+Model: pythia-12b-deduped-awq-b4-gs128-zp1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.097, Q2:0.261, Q3:0.174, Q4:0.215
+    - Syntactic Entropy: Q1:0.116, Q2:0.227, Q3:0.115, Q4:0.255
+    - Redundancy: Q1:0.090, Q2:0.160, Q3:0.205, Q4:0.176
+    - Avg Word Length: Q1:0.109, Q2:0.107, Q3:0.182, Q4:0.186
+    - Capitalization Rate: Q1:0.108, Q2:0.275, Q3:0.236, Q4:0.085
+    - Vocabulary Richness: Q1:0.179, Q2:0.162, Q3:0.141, Q4:0.139
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.429, Q2:0.381, Q3:0.322, Q4:0.155
+    - Syntactic Entropy: Q1:0.479, Q2:0.381, Q3:0.353, Q4:0.118
+    - Redundancy: Q1:0.334, Q2:0.228, Q3:0.248, Q4:0.408
+    - Avg Word Length: Q1:0.236, Q2:0.197, Q3:0.407, Q4:0.422
+    - Capitalization Rate: Q1:0.264, Q2:0.182, Q3:0.359, Q4:0.530
+    - Vocabulary Richness: Q1:0.362, Q2:0.303, Q3:0.378, Q4:0.351
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.211, Q2:0.194, Q3:0.127, Q4:0.168
+    - Syntactic Entropy: Q1:0.221, Q2:0.134, Q3:0.133, Q4:0.191
+    - Redundancy: Q1:0.203, Q2:0.075, Q3:0.212, Q4:0.197
+    - Avg Word Length: Q1:0.261, Q2:0.215, Q3:0.166, Q4:0.232
+    - Capitalization Rate: Q1:0.156, Q2:0.109, Q3:0.157, Q4:0.254
+    - Vocabulary Richness: Q1:0.257, Q2:0.157, Q3:0.161, Q4:0.161
+  Dataset: CC
+    - Morphological Complexity: Q1:0.254, Q2:0.118, Q3:0.244, Q4:0.177
+    - Syntactic Entropy: Q1:0.243, Q2:0.218, Q3:0.213, Q4:0.183
+    - Redundancy: Q1:0.194, Q2:0.093, Q3:0.235, Q4:0.206
+    - Avg Word Length: Q1:0.105, Q2:0.228, Q3:0.249, Q4:0.227
+    - Capitalization Rate: Q1:0.183, Q2:0.182, Q3:0.152, Q4:0.313
+    - Vocabulary Richness: Q1:0.288, Q2:0.165, Q3:0.163, Q4:0.114
+
+Model: pythia-12b-deduped-awq-b4-gs32-zp1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.097, Q2:0.267, Q3:0.173, Q4:0.216
+    - Syntactic Entropy: Q1:0.124, Q2:0.233, Q3:0.116, Q4:0.259
+    - Redundancy: Q1:0.092, Q2:0.155, Q3:0.205, Q4:0.177
+    - Avg Word Length: Q1:0.099, Q2:0.101, Q3:0.180, Q4:0.177
+    - Capitalization Rate: Q1:0.110, Q2:0.285, Q3:0.237, Q4:0.080
+    - Vocabulary Richness: Q1:0.180, Q2:0.159, Q3:0.143, Q4:0.132
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.427, Q2:0.384, Q3:0.323, Q4:0.156
+    - Syntactic Entropy: Q1:0.476, Q2:0.384, Q3:0.353, Q4:0.115
+    - Redundancy: Q1:0.326, Q2:0.227, Q3:0.256, Q4:0.410
+    - Avg Word Length: Q1:0.236, Q2:0.202, Q3:0.413, Q4:0.420
+    - Capitalization Rate: Q1:0.258, Q2:0.186, Q3:0.363, Q4:0.533
+    - Vocabulary Richness: Q1:0.359, Q2:0.308, Q3:0.379, Q4:0.356
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.210, Q2:0.199, Q3:0.133, Q4:0.164
+    - Syntactic Entropy: Q1:0.221, Q2:0.135, Q3:0.134, Q4:0.178
+    - Redundancy: Q1:0.191, Q2:0.081, Q3:0.208, Q4:0.208
+    - Avg Word Length: Q1:0.254, Q2:0.212, Q3:0.152, Q4:0.234
+    - Capitalization Rate: Q1:0.153, Q2:0.116, Q3:0.156, Q4:0.254
+    - Vocabulary Richness: Q1:0.248, Q2:0.151, Q3:0.158, Q4:0.160
+  Dataset: CC
+    - Morphological Complexity: Q1:0.257, Q2:0.118, Q3:0.242, Q4:0.174
+    - Syntactic Entropy: Q1:0.245, Q2:0.214, Q3:0.214, Q4:0.191
+    - Redundancy: Q1:0.198, Q2:0.093, Q3:0.240, Q4:0.208
+    - Avg Word Length: Q1:0.110, Q2:0.228, Q3:0.247, Q4:0.235
+    - Capitalization Rate: Q1:0.184, Q2:0.181, Q3:0.153, Q4:0.312
+    - Vocabulary Richness: Q1:0.290, Q2:0.167, Q3:0.164, Q4:0.120
+
+Model: pythia-12b-deduped-awq-b4-gs64-zp1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.096, Q2:0.266, Q3:0.172, Q4:0.215
+    - Syntactic Entropy: Q1:0.123, Q2:0.231, Q3:0.115, Q4:0.258
+    - Redundancy: Q1:0.090, Q2:0.155, Q3:0.205, Q4:0.178
+    - Avg Word Length: Q1:0.099, Q2:0.099, Q3:0.176, Q4:0.182
+    - Capitalization Rate: Q1:0.108, Q2:0.282, Q3:0.237, Q4:0.077
+    - Vocabulary Richness: Q1:0.183, Q2:0.159, Q3:0.139, Q4:0.133
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.427, Q2:0.381, Q3:0.322, Q4:0.157
+    - Syntactic Entropy: Q1:0.478, Q2:0.380, Q3:0.349, Q4:0.117
+    - Redundancy: Q1:0.322, Q2:0.231, Q3:0.254, Q4:0.407
+    - Avg Word Length: Q1:0.232, Q2:0.201, Q3:0.407, Q4:0.417
+    - Capitalization Rate: Q1:0.260, Q2:0.184, Q3:0.358, Q4:0.536
+    - Vocabulary Richness: Q1:0.358, Q2:0.305, Q3:0.384, Q4:0.350
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.208, Q2:0.222, Q3:0.129, Q4:0.166
+    - Syntactic Entropy: Q1:0.217, Q2:0.134, Q3:0.131, Q4:0.180
+    - Redundancy: Q1:0.192, Q2:0.076, Q3:0.212, Q4:0.207
+    - Avg Word Length: Q1:0.258, Q2:0.212, Q3:0.153, Q4:0.233
+    - Capitalization Rate: Q1:0.155, Q2:0.111, Q3:0.153, Q4:0.248
+    - Vocabulary Richness: Q1:0.248, Q2:0.155, Q3:0.161, Q4:0.155
+  Dataset: CC
+    - Morphological Complexity: Q1:0.261, Q2:0.117, Q3:0.240, Q4:0.179
+    - Syntactic Entropy: Q1:0.251, Q2:0.214, Q3:0.208, Q4:0.192
+    - Redundancy: Q1:0.193, Q2:0.099, Q3:0.238, Q4:0.210
+    - Avg Word Length: Q1:0.112, Q2:0.229, Q3:0.249, Q4:0.238
+    - Capitalization Rate: Q1:0.185, Q2:0.182, Q3:0.156, Q4:0.318
+    - Vocabulary Richness: Q1:0.293, Q2:0.163, Q3:0.165, Q4:0.117
+
+Model: pythia-12b-deduped-gptq-b2-gs-1-da0
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.095, Q2:0.117, Q3:0.168, Q4:0.159
+    - Syntactic Entropy: Q1:0.101, Q2:0.092, Q3:0.083, Q4:0.101
+    - Redundancy: Q1:0.140, Q2:0.084, Q3:0.116, Q4:0.224
+    - Avg Word Length: Q1:0.087, Q2:0.091, Q3:0.158, Q4:0.179
+    - Capitalization Rate: Q1:0.121, Q2:0.091, Q3:0.103, Q4:0.074
+    - Vocabulary Richness: Q1:0.149, Q2:0.142, Q3:0.131, Q4:0.121
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.159, Q2:0.321, Q3:0.141, Q4:0.156
+    - Syntactic Entropy: Q1:0.308, Q2:0.175, Q3:0.159, Q4:0.135
+    - Redundancy: Q1:0.188, Q2:0.112, Q3:0.113, Q4:0.091
+    - Avg Word Length: Q1:0.116, Q2:0.193, Q3:0.086, Q4:0.222
+    - Capitalization Rate: Q1:0.161, Q2:0.089, Q3:0.174, Q4:0.215
+    - Vocabulary Richness: Q1:0.198, Q2:0.105, Q3:0.111, Q4:0.191
+  Dataset: CC
+    - Morphological Complexity: Q1:0.194, Q2:0.082, Q3:0.136, Q4:0.225
+    - Syntactic Entropy: Q1:0.233, Q2:0.194, Q3:0.150, Q4:0.139
+    - Redundancy: Q1:0.130, Q2:0.109, Q3:0.188, Q4:0.168
+    - Avg Word Length: Q1:0.147, Q2:0.185, Q3:0.120, Q4:0.169
+    - Capitalization Rate: Q1:0.182, Q2:0.147, Q3:0.108, Q4:0.177
+    - Vocabulary Richness: Q1:0.273, Q2:0.182, Q3:0.224, Q4:0.153
+
+Model: pythia-12b-deduped-gptq-b2-gs-1-da1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.080, Q2:0.115, Q3:0.101, Q4:0.073
+    - Syntactic Entropy: Q1:0.094, Q2:0.121, Q3:0.100, Q4:0.161
+    - Redundancy: Q1:0.097, Q2:0.197, Q3:0.075, Q4:0.202
+    - Avg Word Length: Q1:0.089, Q2:0.080, Q3:0.160, Q4:0.097
+    - Capitalization Rate: Q1:0.122, Q2:0.114, Q3:0.046, Q4:0.122
+    - Vocabulary Richness: Q1:0.103, Q2:0.167, Q3:0.184, Q4:0.106
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.113, Q2:0.453, Q3:0.111, Q4:0.134
+    - Syntactic Entropy: Q1:0.202, Q2:0.190, Q3:0.133, Q4:0.125
+    - Redundancy: Q1:0.202, Q2:0.127, Q3:0.076, Q4:0.124
+    - Avg Word Length: Q1:0.135, Q2:0.198, Q3:0.112, Q4:0.131
+    - Capitalization Rate: Q1:0.129, Q2:0.088, Q3:0.127, Q4:0.210
+    - Vocabulary Richness: Q1:0.211, Q2:0.107, Q3:0.156, Q4:0.191
+  Dataset: CC
+    - Morphological Complexity: Q1:0.095, Q2:0.170, Q3:0.142, Q4:0.221
+    - Syntactic Entropy: Q1:0.165, Q2:0.144, Q3:0.145, Q4:0.123
+    - Redundancy: Q1:0.127, Q2:0.132, Q3:0.129, Q4:0.120
+    - Avg Word Length: Q1:0.168, Q2:0.166, Q3:0.101, Q4:0.080
+    - Capitalization Rate: Q1:0.171, Q2:0.104, Q3:0.127, Q4:0.173
+    - Vocabulary Richness: Q1:0.185, Q2:0.108, Q3:0.217, Q4:0.131
+
+Model: pythia-12b-deduped-gptq-b2-gs128-da0
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.125, Q2:0.112, Q3:0.073, Q4:0.118
+    - Syntactic Entropy: Q1:0.101, Q2:0.120, Q3:0.091, Q4:0.144
+    - Redundancy: Q1:0.057, Q2:0.116, Q3:0.108, Q4:0.209
+    - Avg Word Length: Q1:0.119, Q2:0.062, Q3:0.172, Q4:0.091
+    - Capitalization Rate: Q1:0.145, Q2:0.139, Q3:0.106, Q4:0.131
+    - Vocabulary Richness: Q1:0.160, Q2:0.148, Q3:0.173, Q4:0.102
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.147, Q2:0.326, Q3:0.207, Q4:0.215
+    - Syntactic Entropy: Q1:0.237, Q2:0.198, Q3:0.124, Q4:0.200
+    - Redundancy: Q1:0.173, Q2:0.130, Q3:0.270, Q4:0.138
+    - Avg Word Length: Q1:0.195, Q2:0.212, Q3:0.098, Q4:0.231
+    - Capitalization Rate: Q1:0.128, Q2:0.121, Q3:0.254, Q4:0.234
+    - Vocabulary Richness: Q1:0.160, Q2:0.097, Q3:0.071, Q4:0.280
+  Dataset: CC
+    - Morphological Complexity: Q1:0.144, Q2:0.119, Q3:0.177, Q4:0.242
+    - Syntactic Entropy: Q1:0.216, Q2:0.159, Q3:0.168, Q4:0.132
+    - Redundancy: Q1:0.212, Q2:0.124, Q3:0.131, Q4:0.111
+    - Avg Word Length: Q1:0.198, Q2:0.184, Q3:0.107, Q4:0.092
+    - Capitalization Rate: Q1:0.169, Q2:0.143, Q3:0.115, Q4:0.194
+    - Vocabulary Richness: Q1:0.265, Q2:0.165, Q3:0.130, Q4:0.092
+
+Model: pythia-12b-deduped-gptq-b2-gs128-da1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.132, Q2:0.115, Q3:0.098, Q4:0.164
+    - Syntactic Entropy: Q1:0.108, Q2:0.107, Q3:0.110, Q4:0.163
+    - Redundancy: Q1:0.076, Q2:0.097, Q3:0.129, Q4:0.207
+    - Avg Word Length: Q1:0.139, Q2:0.087, Q3:0.143, Q4:0.106
+    - Capitalization Rate: Q1:0.097, Q2:0.162, Q3:0.181, Q4:0.106
+    - Vocabulary Richness: Q1:0.105, Q2:0.148, Q3:0.196, Q4:0.079
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.185, Q2:0.266, Q3:0.224, Q4:0.152
+    - Syntactic Entropy: Q1:0.239, Q2:0.157, Q3:0.185, Q4:0.153
+    - Redundancy: Q1:0.251, Q2:0.105, Q3:0.195, Q4:0.132
+    - Avg Word Length: Q1:0.206, Q2:0.264, Q3:0.141, Q4:0.234
+    - Capitalization Rate: Q1:0.169, Q2:0.105, Q3:0.238, Q4:0.271
+    - Vocabulary Richness: Q1:0.244, Q2:0.070, Q3:0.056, Q4:0.260
+  Dataset: CC
+    - Morphological Complexity: Q1:0.143, Q2:0.159, Q3:0.183, Q4:0.189
+    - Syntactic Entropy: Q1:0.173, Q2:0.128, Q3:0.140, Q4:0.096
+    - Redundancy: Q1:0.182, Q2:0.084, Q3:0.135, Q4:0.082
+    - Avg Word Length: Q1:0.117, Q2:0.233, Q3:0.098, Q4:0.103
+    - Capitalization Rate: Q1:0.130, Q2:0.062, Q3:0.094, Q4:0.221
+    - Vocabulary Richness: Q1:0.271, Q2:0.093, Q3:0.160, Q4:0.138
+
+Model: pythia-12b-deduped-gptq-b2-gs32-da0
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.138, Q2:0.078, Q3:0.076, Q4:0.150
+    - Syntactic Entropy: Q1:0.140, Q2:0.077, Q3:0.135, Q4:0.139
+    - Redundancy: Q1:0.081, Q2:0.076, Q3:0.111, Q4:0.190
+    - Avg Word Length: Q1:0.138, Q2:0.106, Q3:0.138, Q4:0.108
+    - Capitalization Rate: Q1:0.101, Q2:0.153, Q3:0.162, Q4:0.106
+    - Vocabulary Richness: Q1:0.081, Q2:0.131, Q3:0.174, Q4:0.089
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.195, Q2:0.286, Q3:0.229, Q4:0.136
+    - Syntactic Entropy: Q1:0.247, Q2:0.191, Q3:0.155, Q4:0.176
+    - Redundancy: Q1:0.279, Q2:0.156, Q3:0.188, Q4:0.124
+    - Avg Word Length: Q1:0.271, Q2:0.288, Q3:0.161, Q4:0.240
+    - Capitalization Rate: Q1:0.159, Q2:0.122, Q3:0.222, Q4:0.274
+    - Vocabulary Richness: Q1:0.334, Q2:0.134, Q3:0.072, Q4:0.235
+  Dataset: CC
+    - Morphological Complexity: Q1:0.161, Q2:0.100, Q3:0.190, Q4:0.212
+    - Syntactic Entropy: Q1:0.216, Q2:0.175, Q3:0.162, Q4:0.144
+    - Redundancy: Q1:0.221, Q2:0.064, Q3:0.114, Q4:0.128
+    - Avg Word Length: Q1:0.150, Q2:0.193, Q3:0.088, Q4:0.166
+    - Capitalization Rate: Q1:0.185, Q2:0.105, Q3:0.103, Q4:0.244
+    - Vocabulary Richness: Q1:0.317, Q2:0.130, Q3:0.143, Q4:0.124
+
+Model: pythia-12b-deduped-gptq-b2-gs32-da1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.114, Q2:0.156, Q3:0.113, Q4:0.150
+    - Syntactic Entropy: Q1:0.114, Q2:0.124, Q3:0.107, Q4:0.188
+    - Redundancy: Q1:0.108, Q2:0.122, Q3:0.162, Q4:0.202
+    - Avg Word Length: Q1:0.152, Q2:0.112, Q3:0.137, Q4:0.147
+    - Capitalization Rate: Q1:0.089, Q2:0.188, Q3:0.185, Q4:0.118
+    - Vocabulary Richness: Q1:0.110, Q2:0.159, Q3:0.140, Q4:0.121
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.204, Q2:0.190, Q3:0.162, Q4:0.201
+    - Syntactic Entropy: Q1:0.251, Q2:0.173, Q3:0.153, Q4:0.228
+    - Redundancy: Q1:0.286, Q2:0.076, Q3:0.173, Q4:0.106
+    - Avg Word Length: Q1:0.269, Q2:0.277, Q3:0.127, Q4:0.208
+    - Capitalization Rate: Q1:0.154, Q2:0.104, Q3:0.193, Q4:0.225
+    - Vocabulary Richness: Q1:0.324, Q2:0.157, Q3:0.107, Q4:0.189
+  Dataset: CC
+    - Morphological Complexity: Q1:0.178, Q2:0.134, Q3:0.200, Q4:0.174
+    - Syntactic Entropy: Q1:0.191, Q2:0.128, Q3:0.153, Q4:0.098
+    - Redundancy: Q1:0.206, Q2:0.081, Q3:0.159, Q4:0.103
+    - Avg Word Length: Q1:0.120, Q2:0.184, Q3:0.158, Q4:0.142
+    - Capitalization Rate: Q1:0.176, Q2:0.091, Q3:0.079, Q4:0.246
+    - Vocabulary Richness: Q1:0.268, Q2:0.118, Q3:0.143, Q4:0.156
+
+Model: pythia-12b-deduped-gptq-b2-gs64-da0
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.139, Q2:0.101, Q3:0.086, Q4:0.121
+    - Syntactic Entropy: Q1:0.106, Q2:0.114, Q3:0.133, Q4:0.107
+    - Redundancy: Q1:0.124, Q2:0.079, Q3:0.116, Q4:0.207
+    - Avg Word Length: Q1:0.148, Q2:0.144, Q3:0.159, Q4:0.087
+    - Capitalization Rate: Q1:0.159, Q2:0.153, Q3:0.176, Q4:0.113
+    - Vocabulary Richness: Q1:0.102, Q2:0.135, Q3:0.183, Q4:0.117
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.167, Q2:0.359, Q3:0.224, Q4:0.153
+    - Syntactic Entropy: Q1:0.234, Q2:0.183, Q3:0.161, Q4:0.210
+    - Redundancy: Q1:0.219, Q2:0.136, Q3:0.206, Q4:0.151
+    - Avg Word Length: Q1:0.290, Q2:0.247, Q3:0.133, Q4:0.243
+    - Capitalization Rate: Q1:0.142, Q2:0.089, Q3:0.231, Q4:0.259
+    - Vocabulary Richness: Q1:0.246, Q2:0.122, Q3:0.066, Q4:0.259
+  Dataset: CC
+    - Morphological Complexity: Q1:0.198, Q2:0.126, Q3:0.187, Q4:0.216
+    - Syntactic Entropy: Q1:0.251, Q2:0.178, Q3:0.150, Q4:0.131
+    - Redundancy: Q1:0.204, Q2:0.048, Q3:0.151, Q4:0.153
+    - Avg Word Length: Q1:0.189, Q2:0.207, Q3:0.096, Q4:0.206
+    - Capitalization Rate: Q1:0.167, Q2:0.127, Q3:0.091, Q4:0.252
+    - Vocabulary Richness: Q1:0.344, Q2:0.111, Q3:0.127, Q4:0.120
+
+Model: pythia-12b-deduped-gptq-b2-gs64-da1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.115, Q2:0.135, Q3:0.106, Q4:0.166
+    - Syntactic Entropy: Q1:0.121, Q2:0.109, Q3:0.115, Q4:0.208
+    - Redundancy: Q1:0.095, Q2:0.112, Q3:0.153, Q4:0.200
+    - Avg Word Length: Q1:0.138, Q2:0.087, Q3:0.146, Q4:0.134
+    - Capitalization Rate: Q1:0.112, Q2:0.170, Q3:0.162, Q4:0.104
+    - Vocabulary Richness: Q1:0.095, Q2:0.176, Q3:0.196, Q4:0.096
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.230, Q2:0.239, Q3:0.217, Q4:0.172
+    - Syntactic Entropy: Q1:0.271, Q2:0.196, Q3:0.180, Q4:0.165
+    - Redundancy: Q1:0.280, Q2:0.106, Q3:0.173, Q4:0.138
+    - Avg Word Length: Q1:0.268, Q2:0.248, Q3:0.161, Q4:0.228
+    - Capitalization Rate: Q1:0.191, Q2:0.106, Q3:0.225, Q4:0.242
+    - Vocabulary Richness: Q1:0.316, Q2:0.097, Q3:0.073, Q4:0.224
+  Dataset: CC
+    - Morphological Complexity: Q1:0.173, Q2:0.176, Q3:0.187, Q4:0.201
+    - Syntactic Entropy: Q1:0.205, Q2:0.143, Q3:0.145, Q4:0.112
+    - Redundancy: Q1:0.201, Q2:0.068, Q3:0.160, Q4:0.113
+    - Avg Word Length: Q1:0.126, Q2:0.194, Q3:0.140, Q4:0.136
+    - Capitalization Rate: Q1:0.140, Q2:0.112, Q3:0.082, Q4:0.222
+    - Vocabulary Richness: Q1:0.282, Q2:0.094, Q3:0.140, Q4:0.156
+
+Model: pythia-12b-deduped-gptq-b3-gs-1-da0
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.141, Q2:0.085, Q3:0.057, Q4:0.129
+    - Syntactic Entropy: Q1:0.164, Q2:0.091, Q3:0.143, Q4:0.061
+    - Redundancy: Q1:0.100, Q2:0.120, Q3:0.130, Q4:0.164
+    - Avg Word Length: Q1:0.110, Q2:0.197, Q3:0.178, Q4:0.123
+    - Capitalization Rate: Q1:0.154, Q2:0.115, Q3:0.096, Q4:0.157
+    - Vocabulary Richness: Q1:0.146, Q2:0.136, Q3:0.132, Q4:0.097
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.174, Q2:0.593, Q3:0.134, Q4:0.163
+    - Syntactic Entropy: Q1:0.252, Q2:0.221, Q3:0.121, Q4:0.143
+    - Redundancy: Q1:0.178, Q2:0.211, Q3:0.132, Q4:0.113
+    - Avg Word Length: Q1:0.125, Q2:0.169, Q3:0.131, Q4:0.264
+    - Capitalization Rate: Q1:0.121, Q2:0.126, Q3:0.169, Q4:0.307
+    - Vocabulary Richness: Q1:0.159, Q2:0.134, Q3:0.114, Q4:0.293
+  Dataset: CC
+    - Morphological Complexity: Q1:0.114, Q2:0.073, Q3:0.110, Q4:0.205
+    - Syntactic Entropy: Q1:0.204, Q2:0.115, Q3:0.133, Q4:0.144
+    - Redundancy: Q1:0.168, Q2:0.127, Q3:0.061, Q4:0.090
+    - Avg Word Length: Q1:0.246, Q2:0.092, Q3:0.091, Q4:0.107
+    - Capitalization Rate: Q1:0.143, Q2:0.188, Q3:0.086, Q4:0.201
+    - Vocabulary Richness: Q1:0.137, Q2:0.066, Q3:0.145, Q4:0.119
+
+Model: pythia-12b-deduped-gptq-b3-gs-1-da1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.141, Q2:0.085, Q3:0.057, Q4:0.129
+    - Syntactic Entropy: Q1:0.164, Q2:0.091, Q3:0.143, Q4:0.061
+    - Redundancy: Q1:0.100, Q2:0.120, Q3:0.130, Q4:0.164
+    - Avg Word Length: Q1:0.110, Q2:0.197, Q3:0.178, Q4:0.123
+    - Capitalization Rate: Q1:0.154, Q2:0.115, Q3:0.096, Q4:0.157
+    - Vocabulary Richness: Q1:0.147, Q2:0.136, Q3:0.132, Q4:0.097
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.174, Q2:0.593, Q3:0.134, Q4:0.163
+    - Syntactic Entropy: Q1:0.252, Q2:0.221, Q3:0.121, Q4:0.143
+    - Redundancy: Q1:0.178, Q2:0.211, Q3:0.132, Q4:0.114
+    - Avg Word Length: Q1:0.126, Q2:0.169, Q3:0.131, Q4:0.264
+    - Capitalization Rate: Q1:0.121, Q2:0.126, Q3:0.169, Q4:0.307
+    - Vocabulary Richness: Q1:0.159, Q2:0.133, Q3:0.114, Q4:0.293
+  Dataset: CC
+    - Morphological Complexity: Q1:0.114, Q2:0.073, Q3:0.110, Q4:0.205
+    - Syntactic Entropy: Q1:0.204, Q2:0.115, Q3:0.132, Q4:0.144
+    - Redundancy: Q1:0.168, Q2:0.126, Q3:0.060, Q4:0.090
+    - Avg Word Length: Q1:0.246, Q2:0.092, Q3:0.092, Q4:0.106
+    - Capitalization Rate: Q1:0.143, Q2:0.188, Q3:0.086, Q4:0.201
+    - Vocabulary Richness: Q1:0.137, Q2:0.066, Q3:0.145, Q4:0.119
+
+Model: pythia-12b-deduped-gptq-b3-gs128-da0
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.132, Q2:0.082, Q3:0.048, Q4:0.118
+    - Syntactic Entropy: Q1:0.160, Q2:0.091, Q3:0.145, Q4:0.064
+    - Redundancy: Q1:0.093, Q2:0.130, Q3:0.129, Q4:0.163
+    - Avg Word Length: Q1:0.100, Q2:0.210, Q3:0.178, Q4:0.129
+    - Capitalization Rate: Q1:0.155, Q2:0.115, Q3:0.097, Q4:0.156
+    - Vocabulary Richness: Q1:0.155, Q2:0.136, Q3:0.130, Q4:0.097
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.194, Q2:0.614, Q3:0.133, Q4:0.168
+    - Syntactic Entropy: Q1:0.278, Q2:0.221, Q3:0.125, Q4:0.154
+    - Redundancy: Q1:0.178, Q2:0.202, Q3:0.122, Q4:0.131
+    - Avg Word Length: Q1:0.141, Q2:0.179, Q3:0.123, Q4:0.276
+    - Capitalization Rate: Q1:0.120, Q2:0.125, Q3:0.174, Q4:0.309
+    - Vocabulary Richness: Q1:0.169, Q2:0.130, Q3:0.100, Q4:0.301
+  Dataset: CC
+    - Morphological Complexity: Q1:0.116, Q2:0.077, Q3:0.110, Q4:0.210
+    - Syntactic Entropy: Q1:0.210, Q2:0.114, Q3:0.121, Q4:0.132
+    - Redundancy: Q1:0.163, Q2:0.131, Q3:0.056, Q4:0.089
+    - Avg Word Length: Q1:0.232, Q2:0.097, Q3:0.101, Q4:0.111
+    - Capitalization Rate: Q1:0.143, Q2:0.188, Q3:0.096, Q4:0.201
+    - Vocabulary Richness: Q1:0.141, Q2:0.067, Q3:0.126, Q4:0.111
+
+Model: pythia-12b-deduped-gptq-b3-gs128-da1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.130, Q2:0.084, Q3:0.048, Q4:0.121
+    - Syntactic Entropy: Q1:0.160, Q2:0.091, Q3:0.143, Q4:0.064
+    - Redundancy: Q1:0.090, Q2:0.127, Q3:0.129, Q4:0.163
+    - Avg Word Length: Q1:0.102, Q2:0.206, Q3:0.178, Q4:0.129
+    - Capitalization Rate: Q1:0.153, Q2:0.115, Q3:0.095, Q4:0.156
+    - Vocabulary Richness: Q1:0.155, Q2:0.136, Q3:0.127, Q4:0.097
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.200, Q2:0.613, Q3:0.133, Q4:0.163
+    - Syntactic Entropy: Q1:0.282, Q2:0.220, Q3:0.126, Q4:0.156
+    - Redundancy: Q1:0.178, Q2:0.204, Q3:0.126, Q4:0.135
+    - Avg Word Length: Q1:0.142, Q2:0.178, Q3:0.122, Q4:0.280
+    - Capitalization Rate: Q1:0.120, Q2:0.121, Q3:0.172, Q4:0.312
+    - Vocabulary Richness: Q1:0.167, Q2:0.130, Q3:0.103, Q4:0.306
+  Dataset: CC
+    - Morphological Complexity: Q1:0.118, Q2:0.076, Q3:0.118, Q4:0.212
+    - Syntactic Entropy: Q1:0.208, Q2:0.115, Q3:0.127, Q4:0.135
+    - Redundancy: Q1:0.163, Q2:0.134, Q3:0.057, Q4:0.085
+    - Avg Word Length: Q1:0.237, Q2:0.098, Q3:0.103, Q4:0.106
+    - Capitalization Rate: Q1:0.147, Q2:0.189, Q3:0.099, Q4:0.201
+    - Vocabulary Richness: Q1:0.143, Q2:0.067, Q3:0.133, Q4:0.109
+
+Model: pythia-12b-deduped-gptq-b3-gs32-da0
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.130, Q2:0.083, Q3:0.047, Q4:0.120
+    - Syntactic Entropy: Q1:0.160, Q2:0.091, Q3:0.144, Q4:0.067
+    - Redundancy: Q1:0.088, Q2:0.131, Q3:0.127, Q4:0.163
+    - Avg Word Length: Q1:0.101, Q2:0.209, Q3:0.178, Q4:0.129
+    - Capitalization Rate: Q1:0.155, Q2:0.115, Q3:0.097, Q4:0.152
+    - Vocabulary Richness: Q1:0.153, Q2:0.136, Q3:0.127, Q4:0.097
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.200, Q2:0.631, Q3:0.133, Q4:0.166
+    - Syntactic Entropy: Q1:0.283, Q2:0.221, Q3:0.125, Q4:0.155
+    - Redundancy: Q1:0.178, Q2:0.203, Q3:0.125, Q4:0.134
+    - Avg Word Length: Q1:0.144, Q2:0.178, Q3:0.125, Q4:0.280
+    - Capitalization Rate: Q1:0.120, Q2:0.123, Q3:0.176, Q4:0.311
+    - Vocabulary Richness: Q1:0.168, Q2:0.132, Q3:0.103, Q4:0.303
+  Dataset: CC
+    - Morphological Complexity: Q1:0.120, Q2:0.071, Q3:0.111, Q4:0.212
+    - Syntactic Entropy: Q1:0.210, Q2:0.116, Q3:0.133, Q4:0.135
+    - Redundancy: Q1:0.166, Q2:0.132, Q3:0.055, Q4:0.085
+    - Avg Word Length: Q1:0.235, Q2:0.098, Q3:0.103, Q4:0.107
+    - Capitalization Rate: Q1:0.147, Q2:0.191, Q3:0.096, Q4:0.200
+    - Vocabulary Richness: Q1:0.142, Q2:0.067, Q3:0.125, Q4:0.111
+
+Model: pythia-12b-deduped-gptq-b3-gs32-da1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.128, Q2:0.084, Q3:0.047, Q4:0.124
+    - Syntactic Entropy: Q1:0.158, Q2:0.091, Q3:0.144, Q4:0.065
+    - Redundancy: Q1:0.088, Q2:0.128, Q3:0.130, Q4:0.163
+    - Avg Word Length: Q1:0.100, Q2:0.208, Q3:0.178, Q4:0.129
+    - Capitalization Rate: Q1:0.154, Q2:0.115, Q3:0.095, Q4:0.154
+    - Vocabulary Richness: Q1:0.156, Q2:0.136, Q3:0.126, Q4:0.097
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.201, Q2:0.619, Q3:0.133, Q4:0.161
+    - Syntactic Entropy: Q1:0.284, Q2:0.220, Q3:0.125, Q4:0.155
+    - Redundancy: Q1:0.178, Q2:0.203, Q3:0.126, Q4:0.135
+    - Avg Word Length: Q1:0.145, Q2:0.178, Q3:0.123, Q4:0.281
+    - Capitalization Rate: Q1:0.120, Q2:0.121, Q3:0.173, Q4:0.311
+    - Vocabulary Richness: Q1:0.166, Q2:0.129, Q3:0.103, Q4:0.304
+  Dataset: CC
+    - Morphological Complexity: Q1:0.125, Q2:0.072, Q3:0.124, Q4:0.213
+    - Syntactic Entropy: Q1:0.206, Q2:0.115, Q3:0.133, Q4:0.138
+    - Redundancy: Q1:0.165, Q2:0.139, Q3:0.060, Q4:0.086
+    - Avg Word Length: Q1:0.241, Q2:0.099, Q3:0.103, Q4:0.107
+    - Capitalization Rate: Q1:0.152, Q2:0.194, Q3:0.095, Q4:0.201
+    - Vocabulary Richness: Q1:0.144, Q2:0.067, Q3:0.150, Q4:0.110
+
+Model: pythia-12b-deduped-gptq-b3-gs64-da0
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.132, Q2:0.084, Q3:0.047, Q4:0.118
+    - Syntactic Entropy: Q1:0.162, Q2:0.091, Q3:0.145, Q4:0.064
+    - Redundancy: Q1:0.092, Q2:0.128, Q3:0.128, Q4:0.163
+    - Avg Word Length: Q1:0.101, Q2:0.208, Q3:0.178, Q4:0.129
+    - Capitalization Rate: Q1:0.156, Q2:0.115, Q3:0.097, Q4:0.153
+    - Vocabulary Richness: Q1:0.153, Q2:0.136, Q3:0.128, Q4:0.097
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.198, Q2:0.615, Q3:0.133, Q4:0.166
+    - Syntactic Entropy: Q1:0.281, Q2:0.221, Q3:0.125, Q4:0.155
+    - Redundancy: Q1:0.178, Q2:0.203, Q3:0.124, Q4:0.132
+    - Avg Word Length: Q1:0.142, Q2:0.178, Q3:0.124, Q4:0.278
+    - Capitalization Rate: Q1:0.120, Q2:0.125, Q3:0.174, Q4:0.310
+    - Vocabulary Richness: Q1:0.168, Q2:0.131, Q3:0.103, Q4:0.302
+  Dataset: CC
+    - Morphological Complexity: Q1:0.116, Q2:0.076, Q3:0.111, Q4:0.212
+    - Syntactic Entropy: Q1:0.208, Q2:0.115, Q3:0.131, Q4:0.135
+    - Redundancy: Q1:0.166, Q2:0.127, Q3:0.057, Q4:0.086
+    - Avg Word Length: Q1:0.239, Q2:0.099, Q3:0.101, Q4:0.102
+    - Capitalization Rate: Q1:0.145, Q2:0.191, Q3:0.096, Q4:0.201
+    - Vocabulary Richness: Q1:0.143, Q2:0.067, Q3:0.130, Q4:0.106
+
+Model: pythia-12b-deduped-gptq-b3-gs64-da1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.130, Q2:0.084, Q3:0.048, Q4:0.115
+    - Syntactic Entropy: Q1:0.159, Q2:0.091, Q3:0.148, Q4:0.066
+    - Redundancy: Q1:0.091, Q2:0.129, Q3:0.131, Q4:0.163
+    - Avg Word Length: Q1:0.104, Q2:0.208, Q3:0.178, Q4:0.129
+    - Capitalization Rate: Q1:0.156, Q2:0.115, Q3:0.097, Q4:0.155
+    - Vocabulary Richness: Q1:0.157, Q2:0.136, Q3:0.127, Q4:0.097
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.201, Q2:0.618, Q3:0.133, Q4:0.163
+    - Syntactic Entropy: Q1:0.283, Q2:0.220, Q3:0.126, Q4:0.155
+    - Redundancy: Q1:0.178, Q2:0.204, Q3:0.126, Q4:0.134
+    - Avg Word Length: Q1:0.142, Q2:0.179, Q3:0.123, Q4:0.281
+    - Capitalization Rate: Q1:0.120, Q2:0.121, Q3:0.173, Q4:0.312
+    - Vocabulary Richness: Q1:0.167, Q2:0.129, Q3:0.103, Q4:0.304
+  Dataset: CC
+    - Morphological Complexity: Q1:0.121, Q2:0.071, Q3:0.120, Q4:0.213
+    - Syntactic Entropy: Q1:0.209, Q2:0.114, Q3:0.126, Q4:0.137
+    - Redundancy: Q1:0.167, Q2:0.136, Q3:0.060, Q4:0.089
+    - Avg Word Length: Q1:0.236, Q2:0.099, Q3:0.103, Q4:0.105
+    - Capitalization Rate: Q1:0.147, Q2:0.191, Q3:0.092, Q4:0.201
+    - Vocabulary Richness: Q1:0.142, Q2:0.067, Q3:0.139, Q4:0.115
+
+Model: pythia-12b-deduped-gptq-b4-gs-1-da0
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.096, Q2:0.248, Q3:0.159, Q4:0.212
+    - Syntactic Entropy: Q1:0.123, Q2:0.214, Q3:0.108, Q4:0.244
+    - Redundancy: Q1:0.099, Q2:0.141, Q3:0.204, Q4:0.168
+    - Avg Word Length: Q1:0.110, Q2:0.090, Q3:0.182, Q4:0.176
+    - Capitalization Rate: Q1:0.110, Q2:0.272, Q3:0.234, Q4:0.091
+    - Vocabulary Richness: Q1:0.181, Q2:0.161, Q3:0.144, Q4:0.121
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.219, Q2:0.184, Q3:0.131, Q4:0.171
+    - Syntactic Entropy: Q1:0.209, Q2:0.139, Q3:0.125, Q4:0.189
+    - Redundancy: Q1:0.202, Q2:0.074, Q3:0.227, Q4:0.183
+    - Avg Word Length: Q1:0.277, Q2:0.224, Q3:0.161, Q4:0.228
+    - Capitalization Rate: Q1:0.156, Q2:0.122, Q3:0.162, Q4:0.250
+    - Vocabulary Richness: Q1:0.273, Q2:0.164, Q3:0.166, Q4:0.145
+  Dataset: CC
+    - Morphological Complexity: Q1:0.250, Q2:0.086, Q3:0.256, Q4:0.170
+    - Syntactic Entropy: Q1:0.237, Q2:0.193, Q3:0.229, Q4:0.192
+    - Redundancy: Q1:0.195, Q2:0.089, Q3:0.236, Q4:0.199
+    - Avg Word Length: Q1:0.105, Q2:0.243, Q3:0.240, Q4:0.229
+    - Capitalization Rate: Q1:0.188, Q2:0.168, Q3:0.151, Q4:0.316
+    - Vocabulary Richness: Q1:0.291, Q2:0.158, Q3:0.148, Q4:0.112
+
+Model: pythia-12b-deduped-gptq-b4-gs-1-da1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.099, Q2:0.255, Q3:0.165, Q4:0.212
+    - Syntactic Entropy: Q1:0.122, Q2:0.217, Q3:0.116, Q4:0.251
+    - Redundancy: Q1:0.098, Q2:0.155, Q3:0.204, Q4:0.169
+    - Avg Word Length: Q1:0.102, Q2:0.094, Q3:0.177, Q4:0.203
+    - Capitalization Rate: Q1:0.108, Q2:0.272, Q3:0.233, Q4:0.083
+    - Vocabulary Richness: Q1:0.189, Q2:0.163, Q3:0.136, Q4:0.147
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.214, Q2:0.166, Q3:0.133, Q4:0.170
+    - Syntactic Entropy: Q1:0.217, Q2:0.138, Q3:0.127, Q4:0.195
+    - Redundancy: Q1:0.201, Q2:0.072, Q3:0.223, Q4:0.188
+    - Avg Word Length: Q1:0.263, Q2:0.225, Q3:0.153, Q4:0.229
+    - Capitalization Rate: Q1:0.155, Q2:0.124, Q3:0.167, Q4:0.251
+    - Vocabulary Richness: Q1:0.262, Q2:0.156, Q3:0.163, Q4:0.145
+  Dataset: CC
+    - Morphological Complexity: Q1:0.254, Q2:0.102, Q3:0.247, Q4:0.179
+    - Syntactic Entropy: Q1:0.242, Q2:0.191, Q3:0.222, Q4:0.197
+    - Redundancy: Q1:0.196, Q2:0.093, Q3:0.230, Q4:0.203
+    - Avg Word Length: Q1:0.103, Q2:0.242, Q3:0.240, Q4:0.237
+    - Capitalization Rate: Q1:0.194, Q2:0.170, Q3:0.152, Q4:0.313
+    - Vocabulary Richness: Q1:0.299, Q2:0.168, Q3:0.156, Q4:0.109
+
+Model: pythia-12b-deduped-gptq-b4-gs128-da0
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.098, Q2:0.258, Q3:0.172, Q4:0.208
+    - Syntactic Entropy: Q1:0.130, Q2:0.223, Q3:0.119, Q4:0.251
+    - Redundancy: Q1:0.095, Q2:0.156, Q3:0.206, Q4:0.173
+    - Avg Word Length: Q1:0.102, Q2:0.088, Q3:0.190, Q4:0.191
+    - Capitalization Rate: Q1:0.114, Q2:0.284, Q3:0.231, Q4:0.085
+    - Vocabulary Richness: Q1:0.180, Q2:0.155, Q3:0.147, Q4:0.133
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.426, Q2:0.379, Q3:0.321, Q4:0.161
+    - Syntactic Entropy: Q1:0.479, Q2:0.382, Q3:0.347, Q4:0.113
+    - Redundancy: Q1:0.321, Q2:0.217, Q3:0.249, Q4:0.407
+    - Avg Word Length: Q1:0.239, Q2:0.197, Q3:0.389, Q4:0.415
+    - Capitalization Rate: Q1:0.263, Q2:0.193, Q3:0.380, Q4:0.530
+    - Vocabulary Richness: Q1:0.360, Q2:0.302, Q3:0.370, Q4:0.338
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.213, Q2:0.275, Q3:0.131, Q4:0.165
+    - Syntactic Entropy: Q1:0.212, Q2:0.136, Q3:0.130, Q4:0.183
+    - Redundancy: Q1:0.192, Q2:0.080, Q3:0.214, Q4:0.201
+    - Avg Word Length: Q1:0.265, Q2:0.216, Q3:0.172, Q4:0.230
+    - Capitalization Rate: Q1:0.156, Q2:0.112, Q3:0.158, Q4:0.257
+    - Vocabulary Richness: Q1:0.259, Q2:0.154, Q3:0.154, Q4:0.153
+  Dataset: CC
+    - Morphological Complexity: Q1:0.249, Q2:0.110, Q3:0.247, Q4:0.169
+    - Syntactic Entropy: Q1:0.240, Q2:0.203, Q3:0.210, Q4:0.187
+    - Redundancy: Q1:0.194, Q2:0.082, Q3:0.226, Q4:0.209
+    - Avg Word Length: Q1:0.108, Q2:0.222, Q3:0.250, Q4:0.230
+    - Capitalization Rate: Q1:0.184, Q2:0.182, Q3:0.151, Q4:0.302
+    - Vocabulary Richness: Q1:0.291, Q2:0.177, Q3:0.149, Q4:0.114
+
+Model: pythia-12b-deduped-gptq-b4-gs128-da1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.095, Q2:0.272, Q3:0.178, Q4:0.214
+    - Syntactic Entropy: Q1:0.123, Q2:0.235, Q3:0.118, Q4:0.258
+    - Redundancy: Q1:0.089, Q2:0.151, Q3:0.209, Q4:0.181
+    - Avg Word Length: Q1:0.097, Q2:0.099, Q3:0.182, Q4:0.177
+    - Capitalization Rate: Q1:0.112, Q2:0.282, Q3:0.238, Q4:0.078
+    - Vocabulary Richness: Q1:0.184, Q2:0.159, Q3:0.140, Q4:0.134
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.421, Q2:0.384, Q3:0.324, Q4:0.164
+    - Syntactic Entropy: Q1:0.474, Q2:0.384, Q3:0.346, Q4:0.117
+    - Redundancy: Q1:0.323, Q2:0.226, Q3:0.253, Q4:0.404
+    - Avg Word Length: Q1:0.229, Q2:0.202, Q3:0.412, Q4:0.418
+    - Capitalization Rate: Q1:0.258, Q2:0.184, Q3:0.358, Q4:0.529
+    - Vocabulary Richness: Q1:0.355, Q2:0.304, Q3:0.378, Q4:0.352
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.210, Q2:0.191, Q3:0.130, Q4:0.164
+    - Syntactic Entropy: Q1:0.217, Q2:0.135, Q3:0.133, Q4:0.179
+    - Redundancy: Q1:0.191, Q2:0.078, Q3:0.207, Q4:0.202
+    - Avg Word Length: Q1:0.259, Q2:0.215, Q3:0.151, Q4:0.232
+    - Capitalization Rate: Q1:0.155, Q2:0.112, Q3:0.157, Q4:0.250
+    - Vocabulary Richness: Q1:0.249, Q2:0.153, Q3:0.159, Q4:0.154
+  Dataset: CC
+    - Morphological Complexity: Q1:0.260, Q2:0.123, Q3:0.239, Q4:0.176
+    - Syntactic Entropy: Q1:0.251, Q2:0.217, Q3:0.209, Q4:0.198
+    - Redundancy: Q1:0.201, Q2:0.094, Q3:0.235, Q4:0.211
+    - Avg Word Length: Q1:0.108, Q2:0.230, Q3:0.254, Q4:0.236
+    - Capitalization Rate: Q1:0.188, Q2:0.181, Q3:0.152, Q4:0.313
+    - Vocabulary Richness: Q1:0.290, Q2:0.164, Q3:0.165, Q4:0.125
+
+Model: pythia-12b-deduped-gptq-b4-gs32-da0
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.095, Q2:0.267, Q3:0.167, Q4:0.221
+    - Syntactic Entropy: Q1:0.120, Q2:0.228, Q3:0.119, Q4:0.250
+    - Redundancy: Q1:0.098, Q2:0.146, Q3:0.206, Q4:0.183
+    - Avg Word Length: Q1:0.098, Q2:0.102, Q3:0.181, Q4:0.174
+    - Capitalization Rate: Q1:0.112, Q2:0.285, Q3:0.232, Q4:0.079
+    - Vocabulary Richness: Q1:0.168, Q2:0.160, Q3:0.153, Q4:0.144
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.217, Q2:0.253, Q3:0.132, Q4:0.162
+    - Syntactic Entropy: Q1:0.216, Q2:0.136, Q3:0.126, Q4:0.181
+    - Redundancy: Q1:0.202, Q2:0.067, Q3:0.220, Q4:0.200
+    - Avg Word Length: Q1:0.273, Q2:0.218, Q3:0.164, Q4:0.230
+    - Capitalization Rate: Q1:0.157, Q2:0.117, Q3:0.156, Q4:0.248
+    - Vocabulary Richness: Q1:0.259, Q2:0.158, Q3:0.169, Q4:0.155
+  Dataset: CC
+    - Morphological Complexity: Q1:0.241, Q2:0.130, Q3:0.233, Q4:0.169
+    - Syntactic Entropy: Q1:0.244, Q2:0.191, Q3:0.194, Q4:0.184
+    - Redundancy: Q1:0.194, Q2:0.073, Q3:0.221, Q4:0.205
+    - Avg Word Length: Q1:0.106, Q2:0.213, Q3:0.236, Q4:0.234
+    - Capitalization Rate: Q1:0.183, Q2:0.170, Q3:0.139, Q4:0.298
+    - Vocabulary Richness: Q1:0.287, Q2:0.164, Q3:0.145, Q4:0.101
+
+Model: pythia-12b-deduped-gptq-b4-gs32-da1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.098, Q2:0.270, Q3:0.176, Q4:0.221
+    - Syntactic Entropy: Q1:0.125, Q2:0.232, Q3:0.118, Q4:0.259
+    - Redundancy: Q1:0.087, Q2:0.155, Q3:0.203, Q4:0.180
+    - Avg Word Length: Q1:0.097, Q2:0.098, Q3:0.187, Q4:0.175
+    - Capitalization Rate: Q1:0.109, Q2:0.284, Q3:0.234, Q4:0.077
+    - Vocabulary Richness: Q1:0.182, Q2:0.161, Q3:0.146, Q4:0.136
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.212, Q2:0.197, Q3:0.130, Q4:0.163
+    - Syntactic Entropy: Q1:0.219, Q2:0.132, Q3:0.131, Q4:0.177
+    - Redundancy: Q1:0.195, Q2:0.081, Q3:0.210, Q4:0.209
+    - Avg Word Length: Q1:0.263, Q2:0.213, Q3:0.156, Q4:0.234
+    - Capitalization Rate: Q1:0.154, Q2:0.112, Q3:0.158, Q4:0.253
+    - Vocabulary Richness: Q1:0.252, Q2:0.148, Q3:0.158, Q4:0.153
+  Dataset: CC
+    - Morphological Complexity: Q1:0.256, Q2:0.126, Q3:0.247, Q4:0.174
+    - Syntactic Entropy: Q1:0.246, Q2:0.209, Q3:0.210, Q4:0.192
+    - Redundancy: Q1:0.202, Q2:0.088, Q3:0.234, Q4:0.208
+    - Avg Word Length: Q1:0.107, Q2:0.225, Q3:0.246, Q4:0.237
+    - Capitalization Rate: Q1:0.185, Q2:0.181, Q3:0.153, Q4:0.310
+    - Vocabulary Richness: Q1:0.292, Q2:0.175, Q3:0.162, Q4:0.116
+
+Model: pythia-12b-deduped-gptq-b4-gs64-da0
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.096, Q2:0.264, Q3:0.171, Q4:0.222
+    - Syntactic Entropy: Q1:0.124, Q2:0.224, Q3:0.117, Q4:0.257
+    - Redundancy: Q1:0.104, Q2:0.154, Q3:0.206, Q4:0.182
+    - Avg Word Length: Q1:0.100, Q2:0.099, Q3:0.187, Q4:0.174
+    - Capitalization Rate: Q1:0.119, Q2:0.283, Q3:0.229, Q4:0.080
+    - Vocabulary Richness: Q1:0.175, Q2:0.166, Q3:0.144, Q4:0.130
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.219, Q2:0.240, Q3:0.133, Q4:0.162
+    - Syntactic Entropy: Q1:0.216, Q2:0.137, Q3:0.125, Q4:0.185
+    - Redundancy: Q1:0.203, Q2:0.070, Q3:0.220, Q4:0.200
+    - Avg Word Length: Q1:0.264, Q2:0.217, Q3:0.154, Q4:0.228
+    - Capitalization Rate: Q1:0.156, Q2:0.112, Q3:0.156, Q4:0.248
+    - Vocabulary Richness: Q1:0.260, Q2:0.156, Q3:0.159, Q4:0.154
+  Dataset: CC
+    - Morphological Complexity: Q1:0.243, Q2:0.116, Q3:0.240, Q4:0.165
+    - Syntactic Entropy: Q1:0.237, Q2:0.194, Q3:0.204, Q4:0.176
+    - Redundancy: Q1:0.190, Q2:0.072, Q3:0.223, Q4:0.204
+    - Avg Word Length: Q1:0.107, Q2:0.215, Q3:0.241, Q4:0.225
+    - Capitalization Rate: Q1:0.184, Q2:0.172, Q3:0.136, Q4:0.303
+    - Vocabulary Richness: Q1:0.289, Q2:0.167, Q3:0.144, Q4:0.105
+
+Model: pythia-12b-deduped-gptq-b4-gs64-da1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.099, Q2:0.264, Q3:0.170, Q4:0.215
+    - Syntactic Entropy: Q1:0.122, Q2:0.231, Q3:0.117, Q4:0.256
+    - Redundancy: Q1:0.092, Q2:0.153, Q3:0.208, Q4:0.174
+    - Avg Word Length: Q1:0.098, Q2:0.096, Q3:0.185, Q4:0.173
+    - Capitalization Rate: Q1:0.110, Q2:0.284, Q3:0.234, Q4:0.080
+    - Vocabulary Richness: Q1:0.177, Q2:0.155, Q3:0.146, Q4:0.132
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.211, Q2:0.211, Q3:0.133, Q4:0.162
+    - Syntactic Entropy: Q1:0.219, Q2:0.133, Q3:0.133, Q4:0.181
+    - Redundancy: Q1:0.194, Q2:0.080, Q3:0.209, Q4:0.202
+    - Avg Word Length: Q1:0.262, Q2:0.215, Q3:0.155, Q4:0.234
+    - Capitalization Rate: Q1:0.154, Q2:0.108, Q3:0.159, Q4:0.248
+    - Vocabulary Richness: Q1:0.252, Q2:0.154, Q3:0.157, Q4:0.155
+  Dataset: CC
+    - Morphological Complexity: Q1:0.256, Q2:0.124, Q3:0.243, Q4:0.182
+    - Syntactic Entropy: Q1:0.250, Q2:0.215, Q3:0.216, Q4:0.191
+    - Redundancy: Q1:0.199, Q2:0.101, Q3:0.235, Q4:0.209
+    - Avg Word Length: Q1:0.112, Q2:0.235, Q3:0.247, Q4:0.236
+    - Capitalization Rate: Q1:0.185, Q2:0.180, Q3:0.159, Q4:0.312
+    - Vocabulary Richness: Q1:0.294, Q2:0.170, Q3:0.159, Q4:0.125
+
+Model: pythia-12b-deduped-gptq-b8-gs-1-da0
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.098, Q2:0.270, Q3:0.179, Q4:0.222
+    - Syntactic Entropy: Q1:0.128, Q2:0.237, Q3:0.118, Q4:0.262
+    - Redundancy: Q1:0.091, Q2:0.158, Q3:0.208, Q4:0.180
+    - Avg Word Length: Q1:0.094, Q2:0.099, Q3:0.186, Q4:0.177
+    - Capitalization Rate: Q1:0.111, Q2:0.290, Q3:0.241, Q4:0.075
+    - Vocabulary Richness: Q1:0.187, Q2:0.158, Q3:0.147, Q4:0.134
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.209, Q2:0.187, Q3:0.130, Q4:0.164
+    - Syntactic Entropy: Q1:0.221, Q2:0.132, Q3:0.134, Q4:0.173
+    - Redundancy: Q1:0.189, Q2:0.085, Q3:0.206, Q4:0.211
+    - Avg Word Length: Q1:0.255, Q2:0.208, Q3:0.155, Q4:0.237
+    - Capitalization Rate: Q1:0.154, Q2:0.108, Q3:0.152, Q4:0.253
+    - Vocabulary Richness: Q1:0.243, Q2:0.149, Q3:0.161, Q4:0.162
+  Dataset: CC
+    - Morphological Complexity: Q1:0.265, Q2:0.133, Q3:0.245, Q4:0.175
+    - Syntactic Entropy: Q1:0.250, Q2:0.218, Q3:0.211, Q4:0.195
+    - Redundancy: Q1:0.200, Q2:0.094, Q3:0.240, Q4:0.216
+    - Avg Word Length: Q1:0.110, Q2:0.232, Q3:0.255, Q4:0.240
+    - Capitalization Rate: Q1:0.190, Q2:0.184, Q3:0.159, Q4:0.316
+    - Vocabulary Richness: Q1:0.296, Q2:0.176, Q3:0.166, Q4:0.126
+
+Model: pythia-12b-deduped-gptq-b8-gs-1-da1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.096, Q2:0.271, Q3:0.180, Q4:0.223
+    - Syntactic Entropy: Q1:0.128, Q2:0.237, Q3:0.119, Q4:0.262
+    - Redundancy: Q1:0.091, Q2:0.157, Q3:0.207, Q4:0.178
+    - Avg Word Length: Q1:0.095, Q2:0.100, Q3:0.185, Q4:0.176
+    - Capitalization Rate: Q1:0.111, Q2:0.289, Q3:0.241, Q4:0.076
+    - Vocabulary Richness: Q1:0.187, Q2:0.159, Q3:0.149, Q4:0.132
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.210, Q2:0.178, Q3:0.130, Q4:0.164
+    - Syntactic Entropy: Q1:0.220, Q2:0.131, Q3:0.135, Q4:0.173
+    - Redundancy: Q1:0.190, Q2:0.085, Q3:0.206, Q4:0.212
+    - Avg Word Length: Q1:0.254, Q2:0.208, Q3:0.156, Q4:0.237
+    - Capitalization Rate: Q1:0.154, Q2:0.108, Q3:0.151, Q4:0.253
+    - Vocabulary Richness: Q1:0.242, Q2:0.149, Q3:0.164, Q4:0.162
+  Dataset: CC
+    - Morphological Complexity: Q1:0.263, Q2:0.133, Q3:0.243, Q4:0.174
+    - Syntactic Entropy: Q1:0.250, Q2:0.219, Q3:0.208, Q4:0.195
+    - Redundancy: Q1:0.198, Q2:0.093, Q3:0.238, Q4:0.214
+    - Avg Word Length: Q1:0.110, Q2:0.230, Q3:0.255, Q4:0.240
+    - Capitalization Rate: Q1:0.189, Q2:0.183, Q3:0.158, Q4:0.314
+    - Vocabulary Richness: Q1:0.296, Q2:0.176, Q3:0.161, Q4:0.126
+
+Model: pythia-12b-deduped-gptq-b8-gs128-da0
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.096, Q2:0.271, Q3:0.178, Q4:0.223
+    - Syntactic Entropy: Q1:0.127, Q2:0.237, Q3:0.119, Q4:0.262
+    - Redundancy: Q1:0.091, Q2:0.158, Q3:0.208, Q4:0.179
+    - Avg Word Length: Q1:0.094, Q2:0.099, Q3:0.185, Q4:0.177
+    - Capitalization Rate: Q1:0.111, Q2:0.289, Q3:0.240, Q4:0.074
+    - Vocabulary Richness: Q1:0.187, Q2:0.159, Q3:0.149, Q4:0.133
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.422, Q2:0.378, Q3:0.322, Q4:0.152
+    - Syntactic Entropy: Q1:0.472, Q2:0.378, Q3:0.350, Q4:0.118
+    - Redundancy: Q1:0.321, Q2:0.221, Q3:0.254, Q4:0.405
+    - Avg Word Length: Q1:0.231, Q2:0.196, Q3:0.409, Q4:0.418
+    - Capitalization Rate: Q1:0.255, Q2:0.181, Q3:0.357, Q4:0.531
+    - Vocabulary Richness: Q1:0.353, Q2:0.305, Q3:0.372, Q4:0.354
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.208, Q2:0.181, Q3:0.130, Q4:0.164
+    - Syntactic Entropy: Q1:0.219, Q2:0.132, Q3:0.135, Q4:0.174
+    - Redundancy: Q1:0.188, Q2:0.085, Q3:0.206, Q4:0.210
+    - Avg Word Length: Q1:0.254, Q2:0.208, Q3:0.157, Q4:0.237
+    - Capitalization Rate: Q1:0.154, Q2:0.109, Q3:0.152, Q4:0.253
+    - Vocabulary Richness: Q1:0.241, Q2:0.150, Q3:0.160, Q4:0.162
+  Dataset: CC
+    - Morphological Complexity: Q1:0.263, Q2:0.132, Q3:0.246, Q4:0.178
+    - Syntactic Entropy: Q1:0.249, Q2:0.218, Q3:0.211, Q4:0.197
+    - Redundancy: Q1:0.200, Q2:0.095, Q3:0.239, Q4:0.215
+    - Avg Word Length: Q1:0.110, Q2:0.231, Q3:0.257, Q4:0.240
+    - Capitalization Rate: Q1:0.191, Q2:0.184, Q3:0.160, Q4:0.315
+    - Vocabulary Richness: Q1:0.297, Q2:0.177, Q3:0.164, Q4:0.125
+
+Model: pythia-12b-deduped-gptq-b8-gs128-da1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.096, Q2:0.271, Q3:0.180, Q4:0.224
+    - Syntactic Entropy: Q1:0.127, Q2:0.236, Q3:0.119, Q4:0.262
+    - Redundancy: Q1:0.090, Q2:0.158, Q3:0.207, Q4:0.179
+    - Avg Word Length: Q1:0.094, Q2:0.099, Q3:0.185, Q4:0.177
+    - Capitalization Rate: Q1:0.111, Q2:0.290, Q3:0.240, Q4:0.075
+    - Vocabulary Richness: Q1:0.186, Q2:0.160, Q3:0.148, Q4:0.133
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.423, Q2:0.379, Q3:0.322, Q4:0.151
+    - Syntactic Entropy: Q1:0.473, Q2:0.378, Q3:0.351, Q4:0.119
+    - Redundancy: Q1:0.322, Q2:0.221, Q3:0.254, Q4:0.404
+    - Avg Word Length: Q1:0.232, Q2:0.197, Q3:0.409, Q4:0.418
+    - Capitalization Rate: Q1:0.255, Q2:0.181, Q3:0.358, Q4:0.532
+    - Vocabulary Richness: Q1:0.353, Q2:0.305, Q3:0.373, Q4:0.355
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.209, Q2:0.179, Q3:0.130, Q4:0.165
+    - Syntactic Entropy: Q1:0.220, Q2:0.132, Q3:0.134, Q4:0.174
+    - Redundancy: Q1:0.188, Q2:0.084, Q3:0.207, Q4:0.211
+    - Avg Word Length: Q1:0.254, Q2:0.209, Q3:0.155, Q4:0.237
+    - Capitalization Rate: Q1:0.153, Q2:0.109, Q3:0.151, Q4:0.253
+    - Vocabulary Richness: Q1:0.242, Q2:0.150, Q3:0.161, Q4:0.162
+  Dataset: CC
+    - Morphological Complexity: Q1:0.265, Q2:0.131, Q3:0.245, Q4:0.173
+    - Syntactic Entropy: Q1:0.249, Q2:0.216, Q3:0.209, Q4:0.196
+    - Redundancy: Q1:0.198, Q2:0.092, Q3:0.237, Q4:0.216
+    - Avg Word Length: Q1:0.110, Q2:0.230, Q3:0.255, Q4:0.240
+    - Capitalization Rate: Q1:0.191, Q2:0.184, Q3:0.158, Q4:0.315
+    - Vocabulary Richness: Q1:0.295, Q2:0.175, Q3:0.164, Q4:0.126
+
+Model: pythia-12b-deduped-gptq-b8-gs32-da0
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.096, Q2:0.272, Q3:0.180, Q4:0.224
+    - Syntactic Entropy: Q1:0.127, Q2:0.238, Q3:0.120, Q4:0.261
+    - Redundancy: Q1:0.091, Q2:0.157, Q3:0.207, Q4:0.181
+    - Avg Word Length: Q1:0.095, Q2:0.100, Q3:0.185, Q4:0.177
+    - Capitalization Rate: Q1:0.112, Q2:0.289, Q3:0.239, Q4:0.075
+    - Vocabulary Richness: Q1:0.185, Q2:0.159, Q3:0.149, Q4:0.133
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.210, Q2:0.177, Q3:0.130, Q4:0.164
+    - Syntactic Entropy: Q1:0.220, Q2:0.131, Q3:0.135, Q4:0.174
+    - Redundancy: Q1:0.189, Q2:0.083, Q3:0.206, Q4:0.210
+    - Avg Word Length: Q1:0.254, Q2:0.208, Q3:0.156, Q4:0.237
+    - Capitalization Rate: Q1:0.154, Q2:0.110, Q3:0.151, Q4:0.253
+    - Vocabulary Richness: Q1:0.242, Q2:0.149, Q3:0.162, Q4:0.162
+  Dataset: CC
+    - Morphological Complexity: Q1:0.264, Q2:0.133, Q3:0.245, Q4:0.173
+    - Syntactic Entropy: Q1:0.249, Q2:0.217, Q3:0.211, Q4:0.196
+    - Redundancy: Q1:0.199, Q2:0.094, Q3:0.237, Q4:0.215
+    - Avg Word Length: Q1:0.110, Q2:0.230, Q3:0.254, Q4:0.241
+    - Capitalization Rate: Q1:0.190, Q2:0.182, Q3:0.158, Q4:0.314
+    - Vocabulary Richness: Q1:0.294, Q2:0.175, Q3:0.165, Q4:0.126
+
+Model: pythia-12b-deduped-gptq-b8-gs32-da1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.096, Q2:0.271, Q3:0.182, Q4:0.221
+    - Syntactic Entropy: Q1:0.126, Q2:0.237, Q3:0.120, Q4:0.262
+    - Redundancy: Q1:0.090, Q2:0.157, Q3:0.208, Q4:0.179
+    - Avg Word Length: Q1:0.095, Q2:0.099, Q3:0.185, Q4:0.177
+    - Capitalization Rate: Q1:0.111, Q2:0.289, Q3:0.241, Q4:0.075
+    - Vocabulary Richness: Q1:0.186, Q2:0.159, Q3:0.147, Q4:0.133
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.209, Q2:0.183, Q3:0.131, Q4:0.164
+    - Syntactic Entropy: Q1:0.220, Q2:0.132, Q3:0.135, Q4:0.174
+    - Redundancy: Q1:0.189, Q2:0.084, Q3:0.207, Q4:0.211
+    - Avg Word Length: Q1:0.255, Q2:0.208, Q3:0.156, Q4:0.237
+    - Capitalization Rate: Q1:0.154, Q2:0.109, Q3:0.150, Q4:0.253
+    - Vocabulary Richness: Q1:0.242, Q2:0.149, Q3:0.159, Q4:0.162
+  Dataset: CC
+    - Morphological Complexity: Q1:0.264, Q2:0.132, Q3:0.244, Q4:0.174
+    - Syntactic Entropy: Q1:0.249, Q2:0.217, Q3:0.210, Q4:0.196
+    - Redundancy: Q1:0.198, Q2:0.094, Q3:0.238, Q4:0.216
+    - Avg Word Length: Q1:0.110, Q2:0.230, Q3:0.255, Q4:0.240
+    - Capitalization Rate: Q1:0.190, Q2:0.183, Q3:0.159, Q4:0.315
+    - Vocabulary Richness: Q1:0.296, Q2:0.176, Q3:0.164, Q4:0.126
+
+Model: pythia-12b-deduped-gptq-b8-gs64-da0
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.096, Q2:0.271, Q3:0.178, Q4:0.223
+    - Syntactic Entropy: Q1:0.127, Q2:0.237, Q3:0.120, Q4:0.262
+    - Redundancy: Q1:0.091, Q2:0.158, Q3:0.207, Q4:0.181
+    - Avg Word Length: Q1:0.094, Q2:0.098, Q3:0.185, Q4:0.177
+    - Capitalization Rate: Q1:0.112, Q2:0.289, Q3:0.239, Q4:0.075
+    - Vocabulary Richness: Q1:0.186, Q2:0.158, Q3:0.148, Q4:0.134
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.210, Q2:0.179, Q3:0.130, Q4:0.164
+    - Syntactic Entropy: Q1:0.220, Q2:0.131, Q3:0.135, Q4:0.174
+    - Redundancy: Q1:0.189, Q2:0.085, Q3:0.206, Q4:0.212
+    - Avg Word Length: Q1:0.255, Q2:0.208, Q3:0.156, Q4:0.237
+    - Capitalization Rate: Q1:0.154, Q2:0.108, Q3:0.151, Q4:0.252
+    - Vocabulary Richness: Q1:0.242, Q2:0.149, Q3:0.160, Q4:0.162
+  Dataset: CC
+    - Morphological Complexity: Q1:0.264, Q2:0.134, Q3:0.243, Q4:0.175
+    - Syntactic Entropy: Q1:0.252, Q2:0.218, Q3:0.209, Q4:0.196
+    - Redundancy: Q1:0.201, Q2:0.093, Q3:0.237, Q4:0.214
+    - Avg Word Length: Q1:0.111, Q2:0.229, Q3:0.254, Q4:0.240
+    - Capitalization Rate: Q1:0.190, Q2:0.182, Q3:0.157, Q4:0.315
+    - Vocabulary Richness: Q1:0.296, Q2:0.175, Q3:0.163, Q4:0.124
+
+Model: pythia-12b-deduped-gptq-b8-gs64-da1
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.096, Q2:0.270, Q3:0.180, Q4:0.222
+    - Syntactic Entropy: Q1:0.126, Q2:0.237, Q3:0.120, Q4:0.261
+    - Redundancy: Q1:0.092, Q2:0.158, Q3:0.207, Q4:0.179
+    - Avg Word Length: Q1:0.095, Q2:0.099, Q3:0.187, Q4:0.177
+    - Capitalization Rate: Q1:0.111, Q2:0.288, Q3:0.240, Q4:0.075
+    - Vocabulary Richness: Q1:0.186, Q2:0.159, Q3:0.148, Q4:0.134
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.209, Q2:0.185, Q3:0.131, Q4:0.165
+    - Syntactic Entropy: Q1:0.220, Q2:0.131, Q3:0.135, Q4:0.174
+    - Redundancy: Q1:0.189, Q2:0.084, Q3:0.206, Q4:0.211
+    - Avg Word Length: Q1:0.254, Q2:0.209, Q3:0.156, Q4:0.237
+    - Capitalization Rate: Q1:0.154, Q2:0.109, Q3:0.152, Q4:0.253
+    - Vocabulary Richness: Q1:0.242, Q2:0.149, Q3:0.159, Q4:0.161
+  Dataset: CC
+    - Morphological Complexity: Q1:0.265, Q2:0.131, Q3:0.243, Q4:0.175
+    - Syntactic Entropy: Q1:0.250, Q2:0.218, Q3:0.210, Q4:0.196
+    - Redundancy: Q1:0.197, Q2:0.093, Q3:0.239, Q4:0.216
+    - Avg Word Length: Q1:0.110, Q2:0.229, Q3:0.257, Q4:0.240
+    - Capitalization Rate: Q1:0.189, Q2:0.182, Q3:0.160, Q4:0.315
+    - Vocabulary Richness: Q1:0.296, Q2:0.173, Q3:0.164, Q4:0.126
+
+Model: pythia-12b-deduped-static-4bit-fp4-bfloat16
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.098, Q2:0.228, Q3:0.155, Q4:0.197
+    - Syntactic Entropy: Q1:0.115, Q2:0.191, Q3:0.116, Q4:0.236
+    - Redundancy: Q1:0.082, Q2:0.166, Q3:0.208, Q4:0.185
+    - Avg Word Length: Q1:0.116, Q2:0.086, Q3:0.181, Q4:0.169
+    - Capitalization Rate: Q1:0.114, Q2:0.275, Q3:0.224, Q4:0.104
+    - Vocabulary Richness: Q1:0.163, Q2:0.181, Q3:0.160, Q4:0.125
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.441, Q2:0.401, Q3:0.348, Q4:0.211
+    - Syntactic Entropy: Q1:0.496, Q2:0.416, Q3:0.349, Q4:0.126
+    - Redundancy: Q1:0.341, Q2:0.246, Q3:0.309, Q4:0.421
+    - Avg Word Length: Q1:0.259, Q2:0.227, Q3:0.421, Q4:0.441
+    - Capitalization Rate: Q1:0.298, Q2:0.217, Q3:0.374, Q4:0.537
+    - Vocabulary Richness: Q1:0.390, Q2:0.324, Q3:0.381, Q4:0.369
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.208, Q2:0.202, Q3:0.154, Q4:0.202
+    - Syntactic Entropy: Q1:0.208, Q2:0.151, Q3:0.136, Q4:0.240
+    - Redundancy: Q1:0.236, Q2:0.075, Q3:0.234, Q4:0.143
+    - Avg Word Length: Q1:0.259, Q2:0.243, Q3:0.148, Q4:0.210
+    - Capitalization Rate: Q1:0.163, Q2:0.142, Q3:0.164, Q4:0.232
+    - Vocabulary Richness: Q1:0.270, Q2:0.161, Q3:0.142, Q4:0.137
+  Dataset: CC
+    - Morphological Complexity: Q1:0.255, Q2:0.090, Q3:0.233, Q4:0.183
+    - Syntactic Entropy: Q1:0.230, Q2:0.190, Q3:0.209, Q4:0.175
+    - Redundancy: Q1:0.218, Q2:0.082, Q3:0.208, Q4:0.201
+    - Avg Word Length: Q1:0.120, Q2:0.224, Q3:0.208, Q4:0.218
+    - Capitalization Rate: Q1:0.188, Q2:0.146, Q3:0.151, Q4:0.310
+    - Vocabulary Richness: Q1:0.327, Q2:0.147, Q3:0.100, Q4:0.109
+
+Model: pythia-12b-deduped-static-4bit-fp4-dq-bfloat16
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.108, Q2:0.229, Q3:0.150, Q4:0.191
+    - Syntactic Entropy: Q1:0.113, Q2:0.194, Q3:0.125, Q4:0.230
+    - Redundancy: Q1:0.091, Q2:0.155, Q3:0.204, Q4:0.187
+    - Avg Word Length: Q1:0.122, Q2:0.086, Q3:0.188, Q4:0.175
+    - Capitalization Rate: Q1:0.118, Q2:0.280, Q3:0.218, Q4:0.108
+    - Vocabulary Richness: Q1:0.155, Q2:0.182, Q3:0.168, Q4:0.121
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.444, Q2:0.408, Q3:0.334, Q4:0.227
+    - Syntactic Entropy: Q1:0.503, Q2:0.405, Q3:0.351, Q4:0.124
+    - Redundancy: Q1:0.352, Q2:0.248, Q3:0.285, Q4:0.413
+    - Avg Word Length: Q1:0.263, Q2:0.227, Q3:0.423, Q4:0.424
+    - Capitalization Rate: Q1:0.285, Q2:0.208, Q3:0.393, Q4:0.542
+    - Vocabulary Richness: Q1:0.388, Q2:0.345, Q3:0.388, Q4:0.370
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.213, Q2:0.208, Q3:0.153, Q4:0.201
+    - Syntactic Entropy: Q1:0.204, Q2:0.152, Q3:0.137, Q4:0.238
+    - Redundancy: Q1:0.229, Q2:0.080, Q3:0.234, Q4:0.149
+    - Avg Word Length: Q1:0.255, Q2:0.243, Q3:0.147, Q4:0.210
+    - Capitalization Rate: Q1:0.161, Q2:0.154, Q3:0.171, Q4:0.229
+    - Vocabulary Richness: Q1:0.273, Q2:0.169, Q3:0.141, Q4:0.134
+  Dataset: CC
+    - Morphological Complexity: Q1:0.258, Q2:0.091, Q3:0.250, Q4:0.184
+    - Syntactic Entropy: Q1:0.227, Q2:0.212, Q3:0.214, Q4:0.175
+    - Redundancy: Q1:0.217, Q2:0.096, Q3:0.219, Q4:0.208
+    - Avg Word Length: Q1:0.119, Q2:0.230, Q3:0.231, Q4:0.211
+    - Capitalization Rate: Q1:0.187, Q2:0.146, Q3:0.155, Q4:0.320
+    - Vocabulary Richness: Q1:0.327, Q2:0.143, Q3:0.104, Q4:0.110
+
+Model: pythia-12b-deduped-static-4bit-fp4-dq-float16
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.105, Q2:0.238, Q3:0.153, Q4:0.204
+    - Syntactic Entropy: Q1:0.120, Q2:0.202, Q3:0.122, Q4:0.241
+    - Redundancy: Q1:0.092, Q2:0.162, Q3:0.209, Q4:0.185
+    - Avg Word Length: Q1:0.116, Q2:0.085, Q3:0.189, Q4:0.174
+    - Capitalization Rate: Q1:0.118, Q2:0.275, Q3:0.226, Q4:0.104
+    - Vocabulary Richness: Q1:0.166, Q2:0.182, Q3:0.166, Q4:0.125
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.434, Q2:0.401, Q3:0.340, Q4:0.201
+    - Syntactic Entropy: Q1:0.496, Q2:0.397, Q3:0.360, Q4:0.117
+    - Redundancy: Q1:0.339, Q2:0.247, Q3:0.276, Q4:0.422
+    - Avg Word Length: Q1:0.256, Q2:0.220, Q3:0.418, Q4:0.435
+    - Capitalization Rate: Q1:0.288, Q2:0.211, Q3:0.404, Q4:0.543
+    - Vocabulary Richness: Q1:0.391, Q2:0.340, Q3:0.384, Q4:0.378
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.208, Q2:0.206, Q3:0.147, Q4:0.205
+    - Syntactic Entropy: Q1:0.204, Q2:0.150, Q3:0.132, Q4:0.241
+    - Redundancy: Q1:0.225, Q2:0.085, Q3:0.237, Q4:0.148
+    - Avg Word Length: Q1:0.258, Q2:0.238, Q3:0.146, Q4:0.211
+    - Capitalization Rate: Q1:0.157, Q2:0.150, Q3:0.149, Q4:0.232
+    - Vocabulary Richness: Q1:0.266, Q2:0.162, Q3:0.148, Q4:0.133
+  Dataset: CC
+    - Morphological Complexity: Q1:0.256, Q2:0.086, Q3:0.252, Q4:0.179
+    - Syntactic Entropy: Q1:0.232, Q2:0.204, Q3:0.214, Q4:0.189
+    - Redundancy: Q1:0.222, Q2:0.087, Q3:0.218, Q4:0.204
+    - Avg Word Length: Q1:0.121, Q2:0.236, Q3:0.227, Q4:0.218
+    - Capitalization Rate: Q1:0.193, Q2:0.143, Q3:0.158, Q4:0.326
+    - Vocabulary Richness: Q1:0.324, Q2:0.147, Q3:0.110, Q4:0.109
+
+Model: pythia-12b-deduped-static-4bit-fp4-dq-float32
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.104, Q2:0.237, Q3:0.153, Q4:0.201
+    - Syntactic Entropy: Q1:0.121, Q2:0.202, Q3:0.121, Q4:0.240
+    - Redundancy: Q1:0.089, Q2:0.163, Q3:0.209, Q4:0.185
+    - Avg Word Length: Q1:0.116, Q2:0.084, Q3:0.191, Q4:0.174
+    - Capitalization Rate: Q1:0.116, Q2:0.273, Q3:0.227, Q4:0.104
+    - Vocabulary Richness: Q1:0.167, Q2:0.182, Q3:0.164, Q4:0.126
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.433, Q2:0.401, Q3:0.342, Q4:0.199
+    - Syntactic Entropy: Q1:0.496, Q2:0.397, Q3:0.359, Q4:0.114
+    - Redundancy: Q1:0.338, Q2:0.245, Q3:0.276, Q4:0.423
+    - Avg Word Length: Q1:0.256, Q2:0.222, Q3:0.418, Q4:0.435
+    - Capitalization Rate: Q1:0.288, Q2:0.210, Q3:0.406, Q4:0.543
+    - Vocabulary Richness: Q1:0.391, Q2:0.340, Q3:0.385, Q4:0.378
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.208, Q2:0.215, Q3:0.148, Q4:0.206
+    - Syntactic Entropy: Q1:0.204, Q2:0.150, Q3:0.132, Q4:0.242
+    - Redundancy: Q1:0.224, Q2:0.083, Q3:0.236, Q4:0.147
+    - Avg Word Length: Q1:0.257, Q2:0.238, Q3:0.146, Q4:0.210
+    - Capitalization Rate: Q1:0.158, Q2:0.149, Q3:0.148, Q4:0.232
+    - Vocabulary Richness: Q1:0.267, Q2:0.162, Q3:0.149, Q4:0.133
+  Dataset: CC
+    - Morphological Complexity: Q1:0.256, Q2:0.086, Q3:0.251, Q4:0.178
+    - Syntactic Entropy: Q1:0.230, Q2:0.206, Q3:0.212, Q4:0.188
+    - Redundancy: Q1:0.220, Q2:0.086, Q3:0.219, Q4:0.202
+    - Avg Word Length: Q1:0.121, Q2:0.234, Q3:0.227, Q4:0.217
+    - Capitalization Rate: Q1:0.193, Q2:0.143, Q3:0.155, Q4:0.326
+    - Vocabulary Richness: Q1:0.322, Q2:0.145, Q3:0.108, Q4:0.109
+
+Model: pythia-12b-deduped-static-4bit-fp4-float16
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.103, Q2:0.237, Q3:0.153, Q4:0.206
+    - Syntactic Entropy: Q1:0.121, Q2:0.203, Q3:0.123, Q4:0.242
+    - Redundancy: Q1:0.095, Q2:0.163, Q3:0.209, Q4:0.184
+    - Avg Word Length: Q1:0.115, Q2:0.087, Q3:0.190, Q4:0.177
+    - Capitalization Rate: Q1:0.118, Q2:0.275, Q3:0.227, Q4:0.103
+    - Vocabulary Richness: Q1:0.167, Q2:0.182, Q3:0.168, Q4:0.126
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.434, Q2:0.401, Q3:0.341, Q4:0.201
+    - Syntactic Entropy: Q1:0.496, Q2:0.395, Q3:0.360, Q4:0.119
+    - Redundancy: Q1:0.339, Q2:0.245, Q3:0.280, Q4:0.423
+    - Avg Word Length: Q1:0.255, Q2:0.223, Q3:0.419, Q4:0.437
+    - Capitalization Rate: Q1:0.287, Q2:0.212, Q3:0.405, Q4:0.544
+    - Vocabulary Richness: Q1:0.390, Q2:0.337, Q3:0.386, Q4:0.378
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.207, Q2:0.209, Q3:0.148, Q4:0.207
+    - Syntactic Entropy: Q1:0.203, Q2:0.149, Q3:0.133, Q4:0.243
+    - Redundancy: Q1:0.224, Q2:0.082, Q3:0.237, Q4:0.148
+    - Avg Word Length: Q1:0.257, Q2:0.239, Q3:0.145, Q4:0.211
+    - Capitalization Rate: Q1:0.158, Q2:0.149, Q3:0.149, Q4:0.229
+    - Vocabulary Richness: Q1:0.266, Q2:0.163, Q3:0.149, Q4:0.133
+  Dataset: CC
+    - Morphological Complexity: Q1:0.256, Q2:0.086, Q3:0.250, Q4:0.179
+    - Syntactic Entropy: Q1:0.231, Q2:0.205, Q3:0.213, Q4:0.186
+    - Redundancy: Q1:0.220, Q2:0.089, Q3:0.216, Q4:0.204
+    - Avg Word Length: Q1:0.121, Q2:0.234, Q3:0.227, Q4:0.218
+    - Capitalization Rate: Q1:0.193, Q2:0.141, Q3:0.153, Q4:0.327
+    - Vocabulary Richness: Q1:0.320, Q2:0.143, Q3:0.109, Q4:0.108
+
+Model: pythia-12b-deduped-static-4bit-fp4-float32
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.104, Q2:0.237, Q3:0.152, Q4:0.205
+    - Syntactic Entropy: Q1:0.121, Q2:0.201, Q3:0.121, Q4:0.240
+    - Redundancy: Q1:0.092, Q2:0.161, Q3:0.209, Q4:0.185
+    - Avg Word Length: Q1:0.116, Q2:0.087, Q3:0.189, Q4:0.173
+    - Capitalization Rate: Q1:0.117, Q2:0.273, Q3:0.226, Q4:0.104
+    - Vocabulary Richness: Q1:0.168, Q2:0.180, Q3:0.167, Q4:0.126
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.431, Q2:0.400, Q3:0.342, Q4:0.198
+    - Syntactic Entropy: Q1:0.494, Q2:0.395, Q3:0.359, Q4:0.119
+    - Redundancy: Q1:0.335, Q2:0.245, Q3:0.277, Q4:0.423
+    - Avg Word Length: Q1:0.253, Q2:0.221, Q3:0.418, Q4:0.436
+    - Capitalization Rate: Q1:0.287, Q2:0.210, Q3:0.403, Q4:0.542
+    - Vocabulary Richness: Q1:0.390, Q2:0.331, Q3:0.382, Q4:0.379
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.207, Q2:0.215, Q3:0.147, Q4:0.205
+    - Syntactic Entropy: Q1:0.204, Q2:0.150, Q3:0.132, Q4:0.240
+    - Redundancy: Q1:0.224, Q2:0.084, Q3:0.237, Q4:0.149
+    - Avg Word Length: Q1:0.259, Q2:0.239, Q3:0.145, Q4:0.210
+    - Capitalization Rate: Q1:0.157, Q2:0.150, Q3:0.150, Q4:0.231
+    - Vocabulary Richness: Q1:0.267, Q2:0.162, Q3:0.147, Q4:0.133
+  Dataset: CC
+    - Morphological Complexity: Q1:0.257, Q2:0.086, Q3:0.249, Q4:0.181
+    - Syntactic Entropy: Q1:0.231, Q2:0.207, Q3:0.214, Q4:0.186
+    - Redundancy: Q1:0.222, Q2:0.088, Q3:0.218, Q4:0.204
+    - Avg Word Length: Q1:0.121, Q2:0.232, Q3:0.227, Q4:0.217
+    - Capitalization Rate: Q1:0.192, Q2:0.145, Q3:0.155, Q4:0.326
+    - Vocabulary Richness: Q1:0.324, Q2:0.145, Q3:0.108, Q4:0.107
+
+Model: pythia-12b-deduped-static-4bit-nf4-bfloat16
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.094, Q2:0.251, Q3:0.167, Q4:0.205
+    - Syntactic Entropy: Q1:0.118, Q2:0.210, Q3:0.118, Q4:0.241
+    - Redundancy: Q1:0.093, Q2:0.142, Q3:0.204, Q4:0.168
+    - Avg Word Length: Q1:0.107, Q2:0.104, Q3:0.187, Q4:0.190
+    - Capitalization Rate: Q1:0.107, Q2:0.269, Q3:0.224, Q4:0.090
+    - Vocabulary Richness: Q1:0.173, Q2:0.155, Q3:0.142, Q4:0.129
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.445, Q2:0.392, Q3:0.325, Q4:0.173
+    - Syntactic Entropy: Q1:0.489, Q2:0.396, Q3:0.363, Q4:0.116
+    - Redundancy: Q1:0.326, Q2:0.239, Q3:0.259, Q4:0.418
+    - Avg Word Length: Q1:0.234, Q2:0.223, Q3:0.415, Q4:0.429
+    - Capitalization Rate: Q1:0.261, Q2:0.190, Q3:0.366, Q4:0.541
+    - Vocabulary Richness: Q1:0.363, Q2:0.314, Q3:0.383, Q4:0.346
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.215, Q2:0.235, Q3:0.136, Q4:0.172
+    - Syntactic Entropy: Q1:0.215, Q2:0.146, Q3:0.125, Q4:0.195
+    - Redundancy: Q1:0.198, Q2:0.076, Q3:0.217, Q4:0.185
+    - Avg Word Length: Q1:0.259, Q2:0.223, Q3:0.155, Q4:0.228
+    - Capitalization Rate: Q1:0.160, Q2:0.122, Q3:0.172, Q4:0.250
+    - Vocabulary Richness: Q1:0.263, Q2:0.158, Q3:0.158, Q4:0.135
+  Dataset: CC
+    - Morphological Complexity: Q1:0.246, Q2:0.104, Q3:0.233, Q4:0.153
+    - Syntactic Entropy: Q1:0.241, Q2:0.193, Q3:0.185, Q4:0.179
+    - Redundancy: Q1:0.189, Q2:0.068, Q3:0.208, Q4:0.208
+    - Avg Word Length: Q1:0.101, Q2:0.226, Q3:0.220, Q4:0.227
+    - Capitalization Rate: Q1:0.193, Q2:0.158, Q3:0.140, Q4:0.299
+    - Vocabulary Richness: Q1:0.289, Q2:0.142, Q3:0.145, Q4:0.109
+
+Model: pythia-12b-deduped-static-4bit-nf4-dq-bfloat16
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.095, Q2:0.243, Q3:0.161, Q4:0.211
+    - Syntactic Entropy: Q1:0.115, Q2:0.211, Q3:0.109, Q4:0.243
+    - Redundancy: Q1:0.082, Q2:0.143, Q3:0.201, Q4:0.166
+    - Avg Word Length: Q1:0.108, Q2:0.099, Q3:0.178, Q4:0.217
+    - Capitalization Rate: Q1:0.107, Q2:0.275, Q3:0.221, Q4:0.094
+    - Vocabulary Richness: Q1:0.173, Q2:0.151, Q3:0.140, Q4:0.128
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.442, Q2:0.395, Q3:0.327, Q4:0.154
+    - Syntactic Entropy: Q1:0.489, Q2:0.392, Q3:0.364, Q4:0.110
+    - Redundancy: Q1:0.328, Q2:0.246, Q3:0.264, Q4:0.418
+    - Avg Word Length: Q1:0.237, Q2:0.210, Q3:0.409, Q4:0.427
+    - Capitalization Rate: Q1:0.267, Q2:0.197, Q3:0.370, Q4:0.540
+    - Vocabulary Richness: Q1:0.362, Q2:0.317, Q3:0.396, Q4:0.348
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.210, Q2:0.201, Q3:0.140, Q4:0.170
+    - Syntactic Entropy: Q1:0.215, Q2:0.142, Q3:0.120, Q4:0.200
+    - Redundancy: Q1:0.202, Q2:0.076, Q3:0.223, Q4:0.186
+    - Avg Word Length: Q1:0.259, Q2:0.223, Q3:0.157, Q4:0.227
+    - Capitalization Rate: Q1:0.160, Q2:0.118, Q3:0.164, Q4:0.254
+    - Vocabulary Richness: Q1:0.256, Q2:0.158, Q3:0.162, Q4:0.140
+  Dataset: CC
+    - Morphological Complexity: Q1:0.247, Q2:0.091, Q3:0.233, Q4:0.163
+    - Syntactic Entropy: Q1:0.234, Q2:0.182, Q3:0.201, Q4:0.167
+    - Redundancy: Q1:0.194, Q2:0.070, Q3:0.211, Q4:0.204
+    - Avg Word Length: Q1:0.103, Q2:0.217, Q3:0.229, Q4:0.229
+    - Capitalization Rate: Q1:0.197, Q2:0.150, Q3:0.141, Q4:0.304
+    - Vocabulary Richness: Q1:0.297, Q2:0.151, Q3:0.136, Q4:0.110
+
+Model: pythia-12b-deduped-static-4bit-nf4-dq-float16
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.096, Q2:0.255, Q3:0.166, Q4:0.208
+    - Syntactic Entropy: Q1:0.116, Q2:0.220, Q3:0.115, Q4:0.250
+    - Redundancy: Q1:0.091, Q2:0.153, Q3:0.203, Q4:0.172
+    - Avg Word Length: Q1:0.103, Q2:0.101, Q3:0.187, Q4:0.187
+    - Capitalization Rate: Q1:0.106, Q2:0.279, Q3:0.230, Q4:0.084
+    - Vocabulary Richness: Q1:0.180, Q2:0.162, Q3:0.136, Q4:0.134
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.436, Q2:0.394, Q3:0.326, Q4:0.173
+    - Syntactic Entropy: Q1:0.486, Q2:0.386, Q3:0.360, Q4:0.111
+    - Redundancy: Q1:0.327, Q2:0.236, Q3:0.261, Q4:0.414
+    - Avg Word Length: Q1:0.240, Q2:0.207, Q3:0.411, Q4:0.422
+    - Capitalization Rate: Q1:0.260, Q2:0.191, Q3:0.361, Q4:0.542
+    - Vocabulary Richness: Q1:0.359, Q2:0.318, Q3:0.383, Q4:0.351
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.206, Q2:0.210, Q3:0.135, Q4:0.169
+    - Syntactic Entropy: Q1:0.214, Q2:0.141, Q3:0.128, Q4:0.187
+    - Redundancy: Q1:0.196, Q2:0.081, Q3:0.218, Q4:0.195
+    - Avg Word Length: Q1:0.252, Q2:0.219, Q3:0.151, Q4:0.229
+    - Capitalization Rate: Q1:0.156, Q2:0.118, Q3:0.162, Q4:0.249
+    - Vocabulary Richness: Q1:0.250, Q2:0.152, Q3:0.159, Q4:0.141
+  Dataset: CC
+    - Morphological Complexity: Q1:0.251, Q2:0.104, Q3:0.237, Q4:0.157
+    - Syntactic Entropy: Q1:0.244, Q2:0.202, Q3:0.191, Q4:0.185
+    - Redundancy: Q1:0.195, Q2:0.069, Q3:0.217, Q4:0.210
+    - Avg Word Length: Q1:0.104, Q2:0.221, Q3:0.235, Q4:0.228
+    - Capitalization Rate: Q1:0.194, Q2:0.154, Q3:0.144, Q4:0.307
+    - Vocabulary Richness: Q1:0.296, Q2:0.157, Q3:0.149, Q4:0.099
+
+Model: pythia-12b-deduped-static-4bit-nf4-dq-float32
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.097, Q2:0.255, Q3:0.166, Q4:0.208
+    - Syntactic Entropy: Q1:0.116, Q2:0.220, Q3:0.115, Q4:0.248
+    - Redundancy: Q1:0.092, Q2:0.153, Q3:0.203, Q4:0.171
+    - Avg Word Length: Q1:0.104, Q2:0.100, Q3:0.187, Q4:0.189
+    - Capitalization Rate: Q1:0.106, Q2:0.277, Q3:0.229, Q4:0.084
+    - Vocabulary Richness: Q1:0.179, Q2:0.163, Q3:0.137, Q4:0.133
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.436, Q2:0.394, Q3:0.327, Q4:0.169
+    - Syntactic Entropy: Q1:0.487, Q2:0.387, Q3:0.360, Q4:0.110
+    - Redundancy: Q1:0.330, Q2:0.237, Q3:0.261, Q4:0.416
+    - Avg Word Length: Q1:0.241, Q2:0.210, Q3:0.409, Q4:0.422
+    - Capitalization Rate: Q1:0.260, Q2:0.193, Q3:0.360, Q4:0.543
+    - Vocabulary Richness: Q1:0.361, Q2:0.319, Q3:0.383, Q4:0.351
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.206, Q2:0.211, Q3:0.136, Q4:0.170
+    - Syntactic Entropy: Q1:0.214, Q2:0.141, Q3:0.127, Q4:0.187
+    - Redundancy: Q1:0.196, Q2:0.081, Q3:0.218, Q4:0.195
+    - Avg Word Length: Q1:0.253, Q2:0.219, Q3:0.151, Q4:0.229
+    - Capitalization Rate: Q1:0.156, Q2:0.117, Q3:0.161, Q4:0.249
+    - Vocabulary Richness: Q1:0.249, Q2:0.152, Q3:0.160, Q4:0.141
+  Dataset: CC
+    - Morphological Complexity: Q1:0.250, Q2:0.106, Q3:0.239, Q4:0.159
+    - Syntactic Entropy: Q1:0.246, Q2:0.201, Q3:0.192, Q4:0.184
+    - Redundancy: Q1:0.195, Q2:0.070, Q3:0.217, Q4:0.208
+    - Avg Word Length: Q1:0.104, Q2:0.222, Q3:0.233, Q4:0.229
+    - Capitalization Rate: Q1:0.195, Q2:0.153, Q3:0.145, Q4:0.307
+    - Vocabulary Richness: Q1:0.295, Q2:0.158, Q3:0.149, Q4:0.098
+
+Model: pythia-12b-deduped-static-4bit-nf4-float16
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.096, Q2:0.254, Q3:0.166, Q4:0.208
+    - Syntactic Entropy: Q1:0.114, Q2:0.220, Q3:0.114, Q4:0.250
+    - Redundancy: Q1:0.092, Q2:0.151, Q3:0.203, Q4:0.172
+    - Avg Word Length: Q1:0.104, Q2:0.102, Q3:0.189, Q4:0.191
+    - Capitalization Rate: Q1:0.105, Q2:0.279, Q3:0.228, Q4:0.083
+    - Vocabulary Richness: Q1:0.178, Q2:0.162, Q3:0.136, Q4:0.134
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.436, Q2:0.395, Q3:0.327, Q4:0.171
+    - Syntactic Entropy: Q1:0.486, Q2:0.387, Q3:0.358, Q4:0.111
+    - Redundancy: Q1:0.327, Q2:0.237, Q3:0.261, Q4:0.415
+    - Avg Word Length: Q1:0.240, Q2:0.208, Q3:0.410, Q4:0.421
+    - Capitalization Rate: Q1:0.260, Q2:0.193, Q3:0.361, Q4:0.543
+    - Vocabulary Richness: Q1:0.360, Q2:0.320, Q3:0.382, Q4:0.352
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.206, Q2:0.220, Q3:0.136, Q4:0.169
+    - Syntactic Entropy: Q1:0.214, Q2:0.141, Q3:0.128, Q4:0.187
+    - Redundancy: Q1:0.196, Q2:0.080, Q3:0.218, Q4:0.196
+    - Avg Word Length: Q1:0.252, Q2:0.219, Q3:0.151, Q4:0.229
+    - Capitalization Rate: Q1:0.156, Q2:0.117, Q3:0.161, Q4:0.249
+    - Vocabulary Richness: Q1:0.248, Q2:0.152, Q3:0.160, Q4:0.141
+  Dataset: CC
+    - Morphological Complexity: Q1:0.251, Q2:0.104, Q3:0.238, Q4:0.158
+    - Syntactic Entropy: Q1:0.246, Q2:0.201, Q3:0.191, Q4:0.186
+    - Redundancy: Q1:0.195, Q2:0.069, Q3:0.218, Q4:0.209
+    - Avg Word Length: Q1:0.105, Q2:0.222, Q3:0.235, Q4:0.229
+    - Capitalization Rate: Q1:0.193, Q2:0.155, Q3:0.145, Q4:0.306
+    - Vocabulary Richness: Q1:0.297, Q2:0.157, Q3:0.149, Q4:0.099
+
+Model: pythia-12b-deduped-static-4bit-nf4-float32
+  Dataset: ARXIV
+    - Morphological Complexity: Q1:0.098, Q2:0.255, Q3:0.165, Q4:0.208
+    - Syntactic Entropy: Q1:0.114, Q2:0.219, Q3:0.115, Q4:0.249
+    - Redundancy: Q1:0.092, Q2:0.151, Q3:0.203, Q4:0.171
+    - Avg Word Length: Q1:0.104, Q2:0.099, Q3:0.187, Q4:0.189
+    - Capitalization Rate: Q1:0.106, Q2:0.278, Q3:0.228, Q4:0.084
+    - Vocabulary Richness: Q1:0.178, Q2:0.162, Q3:0.137, Q4:0.133
+  Dataset: WIKIPEDIA
+    - Morphological Complexity: Q1:0.435, Q2:0.394, Q3:0.328, Q4:0.170
+    - Syntactic Entropy: Q1:0.485, Q2:0.388, Q3:0.360, Q4:0.111
+    - Redundancy: Q1:0.329, Q2:0.233, Q3:0.261, Q4:0.414
+    - Avg Word Length: Q1:0.240, Q2:0.208, Q3:0.410, Q4:0.423
+    - Capitalization Rate: Q1:0.259, Q2:0.190, Q3:0.362, Q4:0.541
+    - Vocabulary Richness: Q1:0.359, Q2:0.317, Q3:0.382, Q4:0.351
+  Dataset: GITHUB
+    - Morphological Complexity: Q1:0.206, Q2:0.215, Q3:0.136, Q4:0.169
+    - Syntactic Entropy: Q1:0.213, Q2:0.141, Q3:0.127, Q4:0.187
+    - Redundancy: Q1:0.196, Q2:0.081, Q3:0.219, Q4:0.195
+    - Avg Word Length: Q1:0.252, Q2:0.219, Q3:0.152, Q4:0.229
+    - Capitalization Rate: Q1:0.156, Q2:0.117, Q3:0.161, Q4:0.248
+    - Vocabulary Richness: Q1:0.249, Q2:0.153, Q3:0.158, Q4:0.141
+  Dataset: CC
+    - Morphological Complexity: Q1:0.251, Q2:0.107, Q3:0.239, Q4:0.157
+    - Syntactic Entropy: Q1:0.246, Q2:0.201, Q3:0.192, Q4:0.185
+    - Redundancy: Q1:0.195, Q2:0.070, Q3:0.218, Q4:0.209
+    - Avg Word Length: Q1:0.104, Q2:0.223, Q3:0.234, Q4:0.228
+    - Capitalization Rate: Q1:0.193, Q2:0.156, Q3:0.144, Q4:0.308
+    - Vocabulary Richness: Q1:0.296, Q2:0.155, Q3:0.149, Q4:0.098
+
