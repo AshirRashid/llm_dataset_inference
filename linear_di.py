@@ -202,6 +202,8 @@ def split_train_val(metrics):
 
 def main():
     args = get_args()
+    np.random.seed(42)
+    torch.manual_seed(42)
     with open(f"results/{args.model_name}/{args.dataset_name}_train_metrics.json", 'r') as f:
         metrics_train = json.load(f)
     with open(f"results/{args.model_name}/{args.dataset_name}_val_metrics.json", 'r') as f:
