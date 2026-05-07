@@ -27,8 +27,7 @@ def main():
         # return
     model_name =  args.model_name
     
-    if model_name in ["microsoft/phi-1_5", "EleutherAI/pythia-12b", "EleutherAI/pythia-6.9b", "EleutherAI/pythia-410m"]:
-        args.cache_dir = "/scratch/ar7789/.cache/huggingface/pratyush"
+    # Removed hardcoded cache_dir override
 
     model, tokenizer = prepare_model(model_name, cache_dir= args.cache_dir, quant=args.quant)
 

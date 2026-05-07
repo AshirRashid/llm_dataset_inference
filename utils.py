@@ -17,7 +17,7 @@ def prepare_model(model_name, cache_dir, quant=None):
 
     else:
         # For HuggingFace models
-        tokenizer = AutoTokenizer.from_pretrained(model_name)
+        tokenizer = AutoTokenizer.from_pretrained(model_name, cache_dir=cache_dir)
         
         if quant is None:
             # Full precision (float32 by default)
