@@ -20,8 +20,8 @@ def raw_values_batch(model, tokenizer, example_list):
     max_length = tokenizer.model_max_length
     input_ids = tokenizer(example_list, return_tensors="pt", padding=True, truncation=True, max_length=max_length)
     
-    if model.device.type == "cuda":
-        input_ids = {k: v.cuda() for k, v in input_ids.items()}
+    # We guarantee the model is on cuda:0 via device_map={"": 0}
+    input_ids = {k: v.cuda() for k, v in input_ids.items()}
     
     # forward pass with no grad
     with torch.no_grad():
