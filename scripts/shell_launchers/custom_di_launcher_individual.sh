@@ -102,7 +102,7 @@ if echo "$model_name" | grep -q "awq"; then
 elif echo "$model_name" | grep -q "gptq"; then
     echo "Activating conda environment: gptq" >&2
     conda activate gptq || { echo "ERROR: Failed to activate gptq environment" >&2; exit 1; }
-elif echo "$model_name" | grep -qE "static|dynamic"; then
+elif echo "$model_name" | grep -qE "static|dynamic|bnb4|bnb8"; then
     echo "Activating conda environment: pytorch_quant" >&2
     conda activate pytorch_quant || { echo "ERROR: Failed to activate pytorch_quant environment" >&2; exit 1; }
 else

@@ -23,7 +23,7 @@ def parse_model_info(model_dir_name):
 
     # Check for quantization patterns
     # Look for common families
-    families = ["pythia-160m", "pythia-410m", "pythia-1b", "pythia-2.8b", "pythia-6.9b", "pythia-12b"]
+    families = ["pythia-70m", "pythia-160m", "pythia-410m", "pythia-1.4b", "pythia-1b", "pythia-2.8b", "pythia-6.9b", "pythia-12b"]
     for f in families:
         if f in model_dir_name:
             family = f
@@ -46,6 +46,8 @@ def parse_model_info(model_dir_name):
         quant_type = "AWQ"
     elif "static" in model_dir_name.lower():
         quant_type = "Static"
+    elif "bnb" in model_dir_name.lower():
+        quant_type = "BnB"
     
     return family, quant_type, bit_width, bit_sort_key, config
 
@@ -436,8 +438,18 @@ HTML_TEMPLATE = """
                     </div>
                 </div>
             </div>
-            <div style="text-align: right; margin-top: 1rem;">
-                <button id="reset-filters" style="background: none; border: 1px solid var(--accent-color); color: var(--accent-color); padding: 0.4rem 1rem; border-radius: 0.4rem; cursor: pointer;">Reset All</button>
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 1rem; gap: 2rem;">
+                <div class="filter-group" style="flex-grow: 1; max-width: 400px;">
+                    <label>Export for Paper</label>
+                    <div style="display: flex; gap: 0.5rem; align-items: center;">
+                        <select id="export-format" style="flex-grow: 1;">
+                            <option value="svg">SVG (Vector - Recommended)</option>
+                            <option value="png">PNG (High-Res 300DPI)</option>
+                        </select>
+                        <button id="btn-export" style="background: var(--accent-gradient); border: none; color: white; padding: 0.6rem 1.5rem; border-radius: 0.5rem; cursor: pointer; font-weight: 600; white-space: nowrap;">Export Figure</button>
+                    </div>
+                </div>
+                <button id="reset-filters" style="background: none; border: 1px solid var(--accent-color); color: var(--accent-color); padding: 0.4rem 1rem; border-radius: 0.4rem; cursor: pointer; height: fit-content;">Reset All Filters</button>
             </div>
         </section>
 
@@ -606,14 +618,14 @@ HTML_TEMPLATE = """
             
             if (regular.length > 0) {
                 const tr = commonProps('Regular (TP)', '#38bdf8', regular);
-                tr.y = regular.map(d => d[metricKey]);
+                tr.y = regular.map(d => isMetricD ? Math.abs(d[metricKey]) : d[metricKey]);
                 tr.x = regular.map(getXLabel);
                 traces.push(tr);
             }
 
             if (fp.length > 0) {
                 const tr = commonProps('False Positive (FP)', '#f87171', fp);
-                tr.y = fp.map(d => d[metricKey]);
+                tr.y = fp.map(d => isMetricD ? Math.abs(d[metricKey]) : d[metricKey]);
                 tr.x = fp.map(getXLabel);
                 traces.push(tr);
             }
@@ -628,9 +640,9 @@ HTML_TEMPLATE = """
                 plot_bgcolor: 'rgba(0,0,0,0)',
                 font: { family: 'Outfit, sans-serif', color: '#f1f5f9' },
                 yaxis: { 
-                    title: isMetricD ? "Cohen's d" : 'P-Value', 
+                    title: isMetricD ? "|Cohen's d|" : 'P-Value', 
                     gridcolor: 'rgba(255,255,255,0.1)', 
-                    range: isMetricD ? null : [-0.05, 1.1] 
+                    range: isMetricD ? [0, null] : [-0.05, 1.1] 
                 },
                 xaxis: { 
                     gridcolor: 'rgba(255,255,255,0.1)', 
@@ -691,6 +703,69 @@ HTML_TEMPLATE = """
                 ${extraStat}
             `;
         }
+
+        // --- Export Logic ---
+        document.getElementById('btn-export').addEventListener('click', () => {
+            const format = document.getElementById('export-format').value;
+            const plotEl = document.getElementById('plot-container');
+            
+            // Get current filter state for filename
+            const metric = filters.toggleMetricType.checked ? 'cohens_d' : 'p_value';
+            const timestamp = new Date().toISOString().split('T')[0];
+            const filename = `mia_analysis_${metric}_${timestamp}`;
+
+            // Show a "Processing" state on the button
+            const btn = document.getElementById('btn-export');
+            const originalText = btn.innerText;
+            btn.innerText = 'Generating...';
+            btn.disabled = true;
+
+            // --- Paper Style Overrides ---
+            // We temporarily switch to a white background with black text for the paper export
+            const paperStyle = {
+                'font.color': '#000000',
+                'paper_bgcolor': '#ffffff',
+                'plot_bgcolor': '#ffffff',
+                'xaxis.title.font.color': '#000000',
+                'xaxis.tickfont.color': '#000000',
+                'xaxis.gridcolor': '#e2e8f0',
+                'yaxis.title.font.color': '#000000',
+                'yaxis.tickfont.color': '#000000',
+                'yaxis.gridcolor': '#e2e8f0',
+                'margin': { t: 50, b: 100, l: 80, r: 50 }
+            };
+
+            const originalLayout = JSON.parse(JSON.stringify(plotEl.layout));
+
+            const exportOptions = {
+                format: format,
+                width: 1200,
+                height: 700,
+                scale: 3,
+                filename: filename
+            };
+
+            Plotly.relayout(plotEl, paperStyle).then(() => {
+                Plotly.downloadImage(plotEl, exportOptions)
+                    .then(() => {
+                        // Restore original dark theme
+                        Plotly.relayout(plotEl, originalLayout);
+                        btn.innerText = originalText;
+                        btn.disabled = false;
+                    })
+                    .catch(err => {
+                        Plotly.relayout(plotEl, originalLayout);
+                        console.error('Export failed:', err);
+                        btn.innerText = 'Failed';
+                        btn.style.background = '#ef4444';
+                        setTimeout(() => {
+                            btn.innerText = originalText;
+                            btn.style.background = 'var(--accent-gradient)';
+                            btn.disabled = false;
+                        }, 2000);
+                    });
+            });
+        });
 
         initFilters();
         updateDashboard();

@@ -36,7 +36,7 @@ def parse_model_info(model_dir_name):
     bit_sort_key = 99
 
     # Look for common families
-    families = ["pythia-160m", "pythia-410m", "pythia-1.4b", "pythia-1b", "pythia-2.8b", "pythia-6.9b", "pythia-12b"]
+    families = ["pythia-70m", "pythia-160m", "pythia-410m", "pythia-1.4b", "pythia-1b", "pythia-2.8b", "pythia-6.9b", "pythia-12b"]
     for f in families:
         if f in model_dir_name:
             family = f
@@ -48,10 +48,15 @@ def parse_model_info(model_dir_name):
         bits = int(bit_match.group(1))
         bit_width = f"b{bits}"
         bit_sort_key = bits
-        if "gptq" in model_dir_name.lower():
-            quant_type = "GPTQ"
-        elif "awq" in model_dir_name.lower():
-            quant_type = "AWQ"
+    
+    if "gptq" in model_dir_name.lower():
+        quant_type = "GPTQ"
+    elif "awq" in model_dir_name.lower():
+        quant_type = "AWQ"
+    elif "static" in model_dir_name.lower():
+        quant_type = "Static"
+    elif "bnb" in model_dir_name.lower():
+        quant_type = "BnB"
     
     return family, quant_type, bit_width, bit_sort_key
 
